@@ -56,33 +56,26 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart"
+        "src/getting-started/introduction",
+        "src/getting-started/quickstart",
+        "src/getting-started/structure"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Commerce Modules",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "src/commerce-modules/user-module",
+        "src/commerce-modules/cart-module",
+        "src/commerce-modules/auth-module",
+        "src/commerce-modules/order-module",
+        "src/commerce-modules/api-key-module",
+        "src/commerce-modules/product-module",
+        "src/commerce-modules/pricing-module",
+        "src/commerce-modules/payment-module",
+        "src/commerce-modules/customer-module",
+        "src/commerce-modules/promotion-module",
+        "src/commerce-modules/inventory-module",
+        "src/commerce-modules/fulfillment-module"
       ]
     }
   ],
