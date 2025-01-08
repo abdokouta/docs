@@ -62,6 +62,42 @@
       ]
     },
     {
+      "group": "The Basics",
+      "pages": [
+        "src/the-basics/uuid",
+        "src/the-basics/token",
+        "src/the-basics/redis",
+        "src/the-basics/request",
+        "src/the-basics/strings",
+        "src/the-basics/resize",
+        "src/the-basics/serializer",
+        "src/the-basics/response",
+        "src/the-basics/prompts",
+        "src/the-basics/pagination",
+        "src/the-basics/message-queue",
+        "src/the-basics/media",
+        "src/the-basics/log",
+        "src/the-basics/helpers",
+        "src/the-basics/locale",
+        "src/the-basics/hashing",
+        "src/the-basics/event",
+        "src/the-basics/enum",
+        "src/the-basics/dto",
+        "src/the-basics/database",
+        "src/the-basics/container",
+        "src/the-basics/console",
+        "src/the-basics/config",
+        "src/the-basics/concurrency",
+        "src/the-basics/component",
+        "src/the-basics/collections",
+        "src/the-basics/cache",
+        "src/the-basics/avatar",
+        "src/the-basics/actions",
+        "src/the-basics/dto/overview",
+        "src/the-basics/dto/attributes"
+      ]
+    },
+    {
       "group": "Commerce Modules",
       "pages": [
         "src/commerce-modules/user-module",
