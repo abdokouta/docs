@@ -1,6 +1,1 @@
----
-icon: hand-wave
----
-
-# Welcome
 
