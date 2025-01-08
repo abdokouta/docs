@@ -1,0 +1,108 @@
+---
+title: "👤Avatar"
+---
+
+1. [The Basics](/maginium/the-basics)
+
+* [Introduction](/maginium/the-basics/avatar#introduction)
+
+* [Usage](/maginium/the-basics/avatar#usage)
+
+## [Introduction](/maginium/the-basics/avatar#introduction)
+
+Display a unique avatar for any user based on their (initials) name.
+
+This Module is inspired by [Laravolt](https://github.com/laravolt/avatar)
+
+## [Usage](/maginium/the-basics/avatar#usage)
+
+#### [Output as Base64](/maginium/the-basics/avatar#output-as-base64)
+
+```
+// This will output data-uri (base64 image data), e.g., data:image/png;base64,iVBORw0KGg...
+Avatar::create('Joko Widodo')->toBase64();
+
+// Use in view to display initials as an image
+<img src="{{ Avatar::create('Joko Widodo')->toBase64() }}" />
+```
+
+#### [Save as File](/maginium/the-basics/avatar#save-as-file)
+
+```
+Avatar::create('Susilo Bambang Yudhoyono')->save('sample.png');
+Avatar::create('Susilo Bambang Yudhoyono')->save('sample.jpg', 100); // Quality = 100
+```
+
+#### [Output as Gravatar](/maginium/the-basics/avatar#output-as-gravatar)
+
+```
+Avatar::create('uyab@example.net')->toGravatar();
+// Output: http://gravatar.com/avatar/...
+
+Avatar::create('uyab@example.net')->toGravatar(['d' => 'identicon', 'r' => 'pg', 's' => 100]);
+// Output: http://gravatar.com/avatar/...&d=identicon&r=pg&s=100
+```
+
+Gravatar parameter reference
+
+#### [Output as SVG](/maginium/the-basics/avatar#output-as-svg)
+
+```
+Avatar::create('Susilo Bambang Yudhoyono')->toSvg();
+```
+
+You may specify a custom font family for your SVG text.
+
+```
+<head>
+    <!-- Using Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+
+    <!-- OR Setup custom style -->
+    <style>
+    @font-face {
+        font-family: Inter;
+        src: url({{ asset('fonts/inter.woff') }});
+    }
+    </style>
+</head>
+```
+
+```
+Avatar::create('Susilo Bambang Yudhoyono')->setFontFamily('Inter')->toSvg();
+```
+
+#### [Get Underlying Intervention Image Object](/maginium/the-basics/avatar#get-underlying-intervention-image-object)
+
+```
+Avatar::create('Abdul Somad')->getImageObject();
+```
+
+Returns an instance of the Intervention image object, enabling further processing.
+
+#### [Non-ASCII Character](/maginium/the-basics/avatar#non-ascii-character)
+
+The library tries to render initials as supplied. For non-ASCII characters (e.g., ā, Ě), their visibility depends on font support. Alternatively, non-ASCII characters can be converted to their closest ASCII counterparts using Stringy.
+
+#### [Overriding Config at Runtime](/maginium/the-basics/avatar#override-config-at-runtime)
+
+```
+Avatar::create('Soekarno')->setDimension(100); // Width = Height = 100 pixels
+Avatar::create('Soekarno')->setDimension(100, 200); // Width = 100, Height = 200
+Avatar::create('Soekarno')->setBackground('#001122');
+Avatar::create('Soekarno')->setForeground('#999999');
+Avatar::create('Soekarno')->setFontSize(72);
+Avatar::create('Soekarno')->setFont('/path/to/font.ttf');
+Avatar::create('Soekarno')->setBorder(1, '#aabbcc'); // Size = 1, Color = #aabbcc
+Avatar::create('Soekarno')->setBorder(1, '#aabbcc', 10); // Border radius = 10 (for SVG only)
+Avatar::create('Soekarno')->setShape('square');
+
+// Since v3.0.0
+Avatar::create('Soekarno')->setTheme('colorful'); // Set exact theme
+Avatar::create('Soekarno')->setTheme(['grayscale-light', 'grayscale-dark']); // Random theme from options
+
+// Chaining
+Avatar::create('Habibie')->setDimension(50)->setFontSize(18)->toBase64();
+```
+
+[PreviousUuid](/maginium/the-basics/uuid)[NextHashing](/maginium/the-basics/hashing)

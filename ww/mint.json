@@ -1,0 +1,123 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Maginium",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#55D799",
+    "dark": "#0D9373"
+  },
+  "favicon": "/maginium/~gitbook/icon",
+  "navigation": [
+    {
+      "group": "Maginium",
+      "pages": [
+        "maginium"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "maginium/getting-started/quickstart",
+        "maginium/getting-started/publish-your-docs",
+        "maginium/getting-started/structure"
+      ]
+    },
+    {
+      "group": "The Basics",
+      "pages": [
+        "maginium/the-basics/concurrency",
+        "maginium/the-basics/strings",
+        "maginium/the-basics/actions",
+        "maginium/the-basics/cache",
+        "maginium/the-basics/collections",
+        "maginium/the-basics/component",
+        "maginium/the-basics/config",
+        "maginium/the-basics/console",
+        {
+          "group": "🗃️Database",
+          "pages": [
+            "maginium/the-basics/database",
+            "maginium/the-basics/database/overview",
+            "maginium/the-basics/database/eloquent",
+            "maginium/the-basics/database/seeder",
+            "maginium/the-basics/database/migration",
+            "maginium/the-basics/database/models",
+            "maginium/the-basics/database/factories",
+            "maginium/the-basics/database/schemas",
+            "maginium/the-basics/database/traits",
+            "maginium/the-basics/database/concerns"
+          ]
+        },
+        "maginium/the-basics/container",
+        "maginium/the-basics/enum",
+        "maginium/the-basics/event",
+        "maginium/the-basics/log",
+        "maginium/the-basics/pagination",
+        "maginium/the-basics/prompts",
+        "maginium/the-basics/request",
+        "maginium/the-basics/response",
+        "maginium/the-basics/redis",
+        "maginium/the-basics/resize",
+        {
+          "group": "🔌Serializer",
+          "pages": [
+            "maginium/the-basics/serializer",
+            "maginium/the-basics/serializer/json",
+            "maginium/the-basics/serializer/serializer",
+            "maginium/the-basics/serializer/closure-serializer"
+          ]
+        },
+        "maginium/the-basics/uuid",
+        "maginium/the-basics/avatar",
+        "maginium/the-basics/hashing",
+        {
+          "group": "📤Dto",
+          "pages": [
+            "maginium/the-basics/dto",
+            "maginium/the-basics/dto/overview",
+            "maginium/the-basics/dto/attributes"
+          ]
+        },
+        "maginium/the-basics/locale",
+        {
+          "group": "🔗Token",
+          "pages": [
+            "maginium/the-basics/token",
+            "maginium/the-basics/token/api-keys",
+            "maginium/the-basics/token/admin-token",
+            "maginium/the-basics/token/customer-token"
+          ]
+        },
+        "maginium/the-basics/message-queue",
+        "maginium/the-basics/media",
+        "maginium/the-basics/helpers"
+      ]
+    },
+    {
+      "group": "Commerce Modules",
+      "pages": [
+        "maginium/commerce-modules/api-key-module",
+        "maginium/commerce-modules/auth-module",
+        "maginium/commerce-modules/cart-module",
+        "maginium/commerce-modules/customer-module",
+        "maginium/commerce-modules/inventory-module",
+        "maginium/commerce-modules/fulfillment-module",
+        "maginium/commerce-modules/order-module",
+        "maginium/commerce-modules/payment-module",
+        "maginium/commerce-modules/pricing-module",
+        "maginium/commerce-modules/product-module",
+        "maginium/commerce-modules/promotion-module",
+        "maginium/commerce-modules/user-module"
+      ]
+    },
+    {
+      "group": "SDKs and Tools",
+      "pages": [
+        "maginium/sdks-and-tools/create-maginium-app",
+        "maginium/sdks-and-tools/maginium-cli",
+        "maginium/sdks-and-tools/js-sdk",
+        "maginium/sdks-and-tools/storefront-starter"
+      ]
+    }
+  ]
+}
