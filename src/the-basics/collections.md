@@ -1,21 +1,19 @@
 # 🗂️ Collections
 
-- [Introduction](collections.md#introduction)
-  - [Creating Collections](collections.md#creating-collections)
-  - [Extending Collections](collections.md#extending-collections)
-- [Available Methods](collections.md#available-methods)
-- [Higher Order Messages](collections.md#higher-order-messages)
-- [Lazy Collections](collections.md#lazy-collections)
-  - [Introduction](collections.md#lazy-collection-introduction)
-  - [Creating Lazy Collections](collections.md#creating-lazy-collections)
-  - [The Enumerable Contract](collections.md#the-enumerable-contract)
-  - [Lazy Collection Methods](collections.md#lazy-collection-methods)
+* [Introduction](collections.md#introduction)
+  * [Creating Collections](collections.md#creating-collections)
+  * [Extending Collections](collections.md#extending-collections)
+* [Available Methods](collections.md#available-methods)
+* [Higher Order Messages](collections.md#higher-order-messages)
+* [Lazy Collections](collections.md#lazy-collections)
+  * [Introduction](collections.md#lazy-collection-introduction)
+  * [Creating Lazy Collections](collections.md#creating-lazy-collections)
+  * [The Enumerable Contract](collections.md#the-enumerable-contract)
+  * [Lazy Collection Methods](collections.md#lazy-collection-methods)
 
 ## [Introduction](collections.md#introduction) <a href="#introduction" id="introduction"></a>
 
-The `Maginium\Framework\Support\Collection` class provides a fluent, convenient wrapper for working with arrays of data. For example, check out the
-following code. We'll use the `collect` helper to create a new collection instance from the array, run the `strtoupper` function on each element, and
-then remove all empty elements:
+The `Maginium\Framework\Support\Collection` class provides a fluent, convenient wrapper for working with arrays of data. For example, check out the following code. We'll use the `collect` helper to create a new collection instance from the array, run the `strtoupper` function on each element, and then remove all empty elements:
 
 ```
 $collection = collect(['taylor', 'abigail', null])->map(function (?string $name) {
@@ -25,27 +23,23 @@ $collection = collect(['taylor', 'abigail', null])->map(function (?string $name)
 });
 ```
 
-As you can see, the `Collection` class allows you to chain its methods to perform fluent mapping and reducing of the underlying array. In general,
-collections are immutable, meaning every `Collection` method returns an entirely new `Collection` instance.
+As you can see, the `Collection` class allows you to chain its methods to perform fluent mapping and reducing of the underlying array. In general, collections are immutable, meaning every `Collection` method returns an entirely new `Collection` instance.
 
 ### [Creating Collections](collections.md#creating-collections) <a href="#creating-collections" id="creating-collections"></a>
 
-As mentioned above, the `collect` helper returns a new `Maginium\Framework\Support\Collection` instance for the given array. So, creating a collection
-is as simple as:
+As mentioned above, the `collect` helper returns a new `Maginium\Framework\Support\Collection` instance for the given array. So, creating a collection is as simple as:
 
 ```
 $collection = collect([1, 2, 3]);
 ```
 
-{% hint style="info" %} The results of [Eloquent](../docs/%7B%7Bversion%7D%7D/eloquent/) queries are always returned as `Collection` instances.
+{% hint style="info" %}
+The results of [Eloquent](../../docs/%7B%7Bversion%7D%7D/eloquent/) queries are always returned as `Collection` instances.
 {% endhint %}
 
 ### [Extending Collections](collections.md#extending-collections) <a href="#extending-collections" id="extending-collections"></a>
 
-Collections are "macroable", which allows you to add additional methods to the `Collection` class at run time. The
-`Maginium\Framework\Support\Collection` class' `macro` method accepts a closure that will be executed when your macro is called. The macro closure may
-access the collection's other methods via `$this`, just as if it were a real method of the collection class. For example, the following code adds a
-`toUpper` method to the `Collection` class:
+Collections are "macroable", which allows you to add additional methods to the `Collection` class at run time. The `Maginium\Framework\Support\Collection` class' `macro` method accepts a closure that will be executed when your macro is called. The macro closure may access the collection's other methods via `$this`, just as if it were a real method of the collection class. For example, the following code adds a `toUpper` method to the `Collection` class:
 
 ```
 use Maginium\Framework\Support\Collection;
@@ -64,7 +58,7 @@ $upper = $collection->toUpper();
 // ['FIRST', 'SECOND']
 ```
 
-Typically, you should declare collection macros in the `boot` method of a [service provider](../docs/%7B%7Bversion%7D%7D/providers/).
+Typically, you should declare collection macros in the `boot` method of a [service provider](../../docs/%7B%7Bversion%7D%7D/providers/).
 
 #### [Macro Arguments](collections.md#macro-arguments) <a href="#macro-arguments" id="macro-arguments"></a>
 
@@ -87,9 +81,7 @@ $translated = $collection->toLocale('es');
 
 ## [Available Methods](collections.md#available-methods) <a href="#available-methods" id="available-methods"></a>
 
-For the majority of the remaining collection documentation, we'll discuss each method available in the `Collection` class. Remember, all of these
-methods may be chained to fluently manipulate the underlying array. Furthermore, almost every method returns a new `Collection` instance, allowing you
-to preserve the original copy of the collection when necessary:
+For the majority of the remaining collection documentation, we'll discuss each method available in the `Collection` class. Remember, all of these methods may be chained to fluently manipulate the underlying array. Furthermore, almost every method returns a new `Collection` instance, allowing you to preserve the original copy of the collection when necessary:
 
 | [after](collections.md#method-after)                       | [all](collections.md#method-all)                       | [average](collections.md#method-average)                   |
 | ---------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
@@ -161,8 +153,7 @@ $collection->after(5);
 // null
 ```
 
-This method searches for the given item using "loose" comparison, meaning a string containing an integer value will be considered equal to an integer
-of the same value. To use "strict" comparison, you may provide the `strict` argument to the method:
+This method searches for the given item using "loose" comparison, meaning a string containing an integer value will be considered equal to an integer of the same value. To use "strict" comparison, you may provide the `strict` argument to the method:
 
 ```
 collect([2, 4, 6, 8])->after('4', strict: true);
@@ -215,8 +206,7 @@ $average = collect([1, 1, 2, 4])->avg();
 
 #### [`before()` {.collection-method}](collections.md#method-before) <a href="#method-before" id="method-before"></a>
 
-The `before` method is the opposite of the [`after`](collections.md#method-after) method. It returns the item before the given item. `null` is
-returned if the given item is not found or is the first item:
+The `before` method is the opposite of the [`after`](collections.md#method-after) method. It returns the item before the given item. `null` is returned if the given item is not found or is the first item:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -254,9 +244,7 @@ $chunks->all();
 // [[1, 2, 3, 4], [5, 6, 7]]
 ```
 
-This method is especially useful in [views](../docs/%7B%7Bversion%7D%7D/views/) when working with a grid system such as
-[Bootstrap](https://getbootstrap.com/docs/5.3/layout/grid/). For example, imagine you have a collection of
-[Eloquent](../docs/%7B%7Bversion%7D%7D/eloquent/) models you want to display in a grid:
+This method is especially useful in [views](../../docs/%7B%7Bversion%7D%7D/views/) when working with a grid system such as [Bootstrap](https://getbootstrap.com/docs/5.3/layout/grid/). For example, imagine you have a collection of [Eloquent](../../docs/%7B%7Bversion%7D%7D/eloquent/) models you want to display in a grid:
 
 ```blade
 @foreach ($products->chunk(3) as $chunk)
@@ -270,8 +258,7 @@ This method is especially useful in [views](../docs/%7B%7Bversion%7D%7D/views/) 
 
 #### [`chunkWhile()` {.collection-method}](collections.md#method-chunkwhile) <a href="#method-chunkwhile" id="method-chunkwhile"></a>
 
-The `chunkWhile` method breaks the collection into multiple, smaller collections based on the evaluation of the given callback. The `$chunk` variable
-passed to the closure may be used to inspect the previous element:
+The `chunkWhile` method breaks the collection into multiple, smaller collections based on the evaluation of the given callback. The `$chunk` variable passed to the closure may be used to inspect the previous element:
 
 ```
 $collection = collect(str_split('AABBCCCD'));
@@ -337,8 +324,9 @@ $collection->all();
 // [1, 2, 3]
 ```
 
-{% hint style="info" %} The `collect` method is especially useful when you have an instance of `Enumerable` and need a non-lazy collection instance.
-Since `collect()` is part of the `Enumerable` contract, you can safely use it to get a `Collection` instance. {% endhint %}
+{% hint style="info" %}
+The \`collect\` method is especially useful when you have an instance of \`Enumerable\` and need a non-lazy collection instance. Since \`collect()\` is part of the \`Enumerable\` contract, you can safely use it to get a \`Collection\` instance.
+{% endhint %}
 
 #### [`combine()` {.collection-method}](collections.md#method-combine) <a href="#method-combine" id="method-combine"></a>
 
@@ -368,13 +356,11 @@ $concatenated->all();
 // ['John Doe', 'Jane Doe', 'Johnny Doe']
 ```
 
-The `concat` method numerically reindexes keys for items concatenated onto the original collection. To maintain keys in associative collections, see
-the [merge](collections.md#method-merge) method.
+The `concat` method numerically reindexes keys for items concatenated onto the original collection. To maintain keys in associative collections, see the [merge](collections.md#method-merge) method.
 
 #### [`contains()` {.collection-method}](collections.md#method-contains) <a href="#method-contains" id="method-contains"></a>
 
-The `contains` method determines whether the collection contains a given item. You may pass a closure to the `contains` method to determine if an
-element exists in the collection matching a given truth test:
+The `contains` method determines whether the collection contains a given item. You may pass a closure to the `contains` method to determine if an element exists in the collection matching a given truth test:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -413,8 +399,7 @@ $collection->contains('product', 'Bookcase');
 // false
 ```
 
-The `contains` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an
-integer of the same value. Use the [`containsStrict`](collections.md#method-containsstrict) method to filter using "strict" comparisons.
+The `contains` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value. Use the [`containsStrict`](collections.md#method-containsstrict) method to filter using "strict" comparisons.
 
 For the inverse of `contains`, see the [doesntContain](collections.md#method-doesntcontain) method.
 
@@ -438,11 +423,11 @@ collect(['1', '2'])->containsOneItem();
 
 #### [`containsStrict()` {.collection-method}](collections.md#method-containsstrict) <a href="#method-containsstrict" id="method-containsstrict"></a>
 
-This method has the same signature as the [`contains`](collections.md#method-contains) method; however, all values are compared using "strict"
-comparisons.
+This method has the same signature as the [`contains`](collections.md#method-contains) method; however, all values are compared using "strict" comparisons.
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-contains). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-contains).
+{% endhint %}
 
 #### [`count()` {.collection-method}](collections.md#method-count) <a href="#method-count" id="method-count"></a>
 
@@ -458,8 +443,7 @@ $collection->count();
 
 #### [`countBy()` {.collection-method}](collections.md#method-countBy) <a href="#method-countby" id="method-countby"></a>
 
-The `countBy` method counts the occurrences of values in the collection. By default, the method counts the occurrences of every element, allowing you
-to count certain "types" of elements in the collection:
+The `countBy` method counts the occurrences of values in the collection. By default, the method counts the occurrences of every element, allowing you to count certain "types" of elements in the collection:
 
 ```
 $collection = collect([1, 2, 2, 2, 3]);
@@ -487,8 +471,7 @@ $counted->all();
 
 #### [`crossJoin()` {.collection-method}](collections.md#method-crossjoin) <a href="#method-crossjoin" id="method-crossjoin"></a>
 
-The `crossJoin` method cross joins the collection's values among the given arrays or collections, returning a Cartesian product with all possible
-permutations:
+The `crossJoin` method cross joins the collection's values among the given arrays or collections, returning a Cartesian product with all possible permutations:
 
 ```
 $collection = collect([1, 2]);
@@ -549,8 +532,7 @@ If you do not want to stop executing the script, use the [`dump`](collections.md
 
 #### [`diff()` {.collection-method}](collections.md#method-diff) <a href="#method-diff" id="method-diff"></a>
 
-The `diff` method compares the collection against another collection or a plain PHP `array` based on its values. This method will return the values in
-the original collection that are not present in the given collection:
+The `diff` method compares the collection against another collection or a plain PHP `array` based on its values. This method will return the values in the original collection that are not present in the given collection:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -562,13 +544,13 @@ $diff->all();
 // [1, 3, 5]
 ```
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-diff). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-diff).
+{% endhint %}
 
 #### [`diffAssoc()` {.collection-method}](collections.md#method-diffassoc) <a href="#method-diffassoc" id="method-diffassoc"></a>
 
-The `diffAssoc` method compares the collection against another collection or a plain PHP `array` based on its keys and values. This method will return
-the key / value pairs in the original collection that are not present in the given collection:
+The `diffAssoc` method compares the collection against another collection or a plain PHP `array` based on its keys and values. This method will return the key / value pairs in the original collection that are not present in the given collection:
 
 ```
 $collection = collect([
@@ -611,14 +593,11 @@ $diff->all();
 // ['color' => 'orange', 'remain' => 6]
 ```
 
-The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the PHP
-documentation on [`array_diff_uassoc`](https://www.php.net/array_diff_uassoc#refsect1-function.array-diff-uassoc-parameters), which is the PHP
-function that the `diffAssocUsing` method utilizes internally.
+The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the PHP documentation on [`array_diff_uassoc`](https://www.php.net/array_diff_uassoc#refsect1-function.array-diff-uassoc-parameters), which is the PHP function that the `diffAssocUsing` method utilizes internally.
 
 #### [`diffKeys()` {.collection-method}](collections.md#method-diffkeys) <a href="#method-diffkeys" id="method-diffkeys"></a>
 
-The `diffKeys` method compares the collection against another collection or a plain PHP `array` based on its keys. This method will return the key /
-value pairs in the original collection that are not present in the given collection:
+The `diffKeys` method compares the collection against another collection or a plain PHP `array` based on its keys. This method will return the key / value pairs in the original collection that are not present in the given collection:
 
 ```
 $collection = collect([
@@ -643,8 +622,7 @@ $diff->all();
 
 #### [`doesntContain()` {.collection-method}](collections.md#method-doesntcontain) <a href="#method-doesntcontain" id="method-doesntcontain"></a>
 
-The `doesntContain` method determines whether the collection does not contain a given item. You may pass a closure to the `doesntContain` method to
-determine if an element does not exist in the collection matching a given truth test:
+The `doesntContain` method determines whether the collection does not contain a given item. You may pass a closure to the `doesntContain` method to determine if an element does not exist in the collection matching a given truth test:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -683,8 +661,7 @@ $collection->doesntContain('product', 'Bookcase');
 // true
 ```
 
-The `doesntContain` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an
-integer of the same value.
+The `doesntContain` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value.
 
 #### [`dot()` {.collection-method}](collections.md#method-dot) <a href="#method-dot" id="method-dot"></a>
 
@@ -749,8 +726,7 @@ $employees->duplicates('position');
 
 #### [`duplicatesStrict()` {.collection-method}](collections.md#method-duplicatesstrict) <a href="#method-duplicatesstrict" id="method-duplicatesstrict"></a>
 
-This method has the same signature as the [`duplicates`](collections.md#method-duplicates) method; however, all values are compared using "strict"
-comparisons.
+This method has the same signature as the [`duplicates`](collections.md#method-duplicates) method; however, all values are compared using "strict" comparisons.
 
 #### [`each()` {.collection-method}](collections.md#method-each) <a href="#method-each" id="method-each"></a>
 
@@ -796,8 +772,7 @@ $collection->eachSpread(function (string $name, int $age) {
 
 #### [`ensure()` {.collection-method}](collections.md#method-ensure) <a href="#method-ensure" id="method-ensure"></a>
 
-The `ensure` method may be used to verify that all elements of a collection are of a given type or list of types. Otherwise, an
-`UnexpectedValueException` will be thrown:
+The `ensure` method may be used to verify that all elements of a collection are of a given type or list of types. Otherwise, an `UnexpectedValueException` will be thrown:
 
 ```
 return $collection->ensure(User::class);
@@ -854,8 +829,9 @@ $filtered->all();
 
 For the inverse of `except`, see the [only](collections.md#method-only) method.
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-except). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-except).
+{% endhint %}
 
 #### [`filter()` {.collection-method}](collections.md#method-filter) <a href="#method-filter" id="method-filter"></a>
 
@@ -907,8 +883,7 @@ collect([1, 2, 3, 4])->first();
 
 #### [`firstOrFail()` {.collection-method}](collections.md#method-first-or-fail) <a href="#method-first-or-fail" id="method-first-or-fail"></a>
 
-The `firstOrFail` method is identical to the `first` method; however, if no result is found, an `Maginium\Framework\Support\ItemNotFoundException`
-exception will be thrown:
+The `firstOrFail` method is identical to the `first` method; however, if no result is found, an `Maginium\Framework\Support\ItemNotFoundException` exception will be thrown:
 
 ```
 collect([1, 2, 3, 4])->firstOrFail(function (int $value, int $key) {
@@ -918,8 +893,7 @@ collect([1, 2, 3, 4])->firstOrFail(function (int $value, int $key) {
 // Throws ItemNotFoundException...
 ```
 
-You may also call the `firstOrFail` method with no arguments to get the first element in the collection. If the collection is empty, an
-`Maginium\Framework\Support\ItemNotFoundException` exception will be thrown:
+You may also call the `firstOrFail` method with no arguments to get the first element in the collection. If the collection is empty, an `Maginium\Framework\Support\ItemNotFoundException` exception will be thrown:
 
 ```
 collect([])->firstOrFail();
@@ -952,8 +926,7 @@ $collection->firstWhere('age', '>=', 18);
 // ['name' => 'Diego', 'age' => 23]
 ```
 
-Like the [where](collections.md#method-where) method, you may pass one argument to the `firstWhere` method. In this scenario, the `firstWhere` method
-will return the first item where the given item key's value is "truthy":
+Like the [where](collections.md#method-where) method, you may pass one argument to the `firstWhere` method. In this scenario, the `firstWhere` method will return the first item where the given item key's value is "truthy":
 
 ```
 $collection->firstWhere('age');
@@ -963,8 +936,7 @@ $collection->firstWhere('age');
 
 #### [`flatMap()` {.collection-method}](collections.md#method-flatmap) <a href="#method-flatmap" id="method-flatmap"></a>
 
-The `flatMap` method iterates through the collection and passes each value to the given closure. The closure is free to modify the item and return it,
-thus forming a new collection of modified items. Then, the array is flattened by one level:
+The `flatMap` method iterates through the collection and passes each value to the given closure. The closure is free to modify the item and return it, thus forming a new collection of modified items. Then, the array is flattened by one level:
 
 ```
 $collection = collect([
@@ -1031,8 +1003,7 @@ $products->values()->all();
 */
 ```
 
-In this example, calling `flatten` without providing the depth would have also flattened the nested arrays, resulting in
-`['iPhone 6S', 'Apple', 'Galaxy S7', 'Samsung']`. Providing a depth allows you to specify the number of levels nested arrays will be flattened.
+In this example, calling `flatten` without providing the depth would have also flattened the nested arrays, resulting in `['iPhone 6S', 'Apple', 'Galaxy S7', 'Samsung']`. Providing a depth allows you to specify the number of levels nested arrays will be flattened.
 
 #### [`flip()` {.collection-method}](collections.md#method-flip) <a href="#method-flip" id="method-flip"></a>
 
@@ -1071,8 +1042,7 @@ $collection->forget(['name', 'framework']);
 
 #### [`forPage()` {.collection-method}](collections.md#method-forpage) <a href="#method-forpage" id="method-forpage"></a>
 
-The `forPage` method returns a new collection containing the items that would be present on a given page number. The method accepts the page number as
-its first argument and the number of items to show per page as its second argument:
+The `forPage` method returns a new collection containing the items that would be present on a given page number. The method accepts the page number as its first argument and the number of items to show per page as its second argument:
 
 ```
 $collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -1244,8 +1214,7 @@ $collection->hasAny(['name', 'price']);
 
 #### [`implode()` {.collection-method}](collections.md#method-implode) <a href="#method-implode" id="method-implode"></a>
 
-The `implode` method joins items in a collection. Its arguments depend on the type of items in the collection. If the collection contains arrays or
-objects, you should pass the key of the attributes you wish to join, and the "glue" string you wish to place between the values:
+The `implode` method joins items in a collection. Its arguments depend on the type of items in the collection. If the collection contains arrays or objects, you should pass the key of the attributes you wish to join, and the "glue" string you wish to place between the values:
 
 ```
 $collection = collect([
@@ -1278,8 +1247,7 @@ $collection->implode(function (array $item, int $key) {
 
 #### [`intersect()` {.collection-method}](collections.md#method-intersect) <a href="#method-intersect" id="method-intersect"></a>
 
-The `intersect` method removes any values from the original collection that are not present in the given `array` or collection. The resulting
-collection will preserve the original collection's keys:
+The `intersect` method removes any values from the original collection that are not present in the given `array` or collection. The resulting collection will preserve the original collection's keys:
 
 ```
 $collection = collect(['Desk', 'Sofa', 'Chair']);
@@ -1291,13 +1259,13 @@ $intersect->all();
 // [0 => 'Desk', 2 => 'Chair']
 ```
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-intersect). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-intersect).
+{% endhint %}
 
 #### [`intersectAssoc()` {.collection-method}](collections.md#method-intersectAssoc) <a href="#method-intersectassoc" id="method-intersectassoc"></a>
 
-The `intersectAssoc` method compares the original collection against another collection or `array`, returning the key / value pairs that are present
-in all of the given collections:
+The `intersectAssoc` method compares the original collection against another collection or `array`, returning the key / value pairs that are present in all of the given collections:
 
 ```
 $collection = collect([
@@ -1319,8 +1287,7 @@ $intersect->all();
 
 #### [`intersectByKeys()` {.collection-method}](collections.md#method-intersectbykeys) <a href="#method-intersectbykeys" id="method-intersectbykeys"></a>
 
-The `intersectByKeys` method removes any keys and their corresponding values from the original collection that are not present in the given `array` or
-collection:
+The `intersectByKeys` method removes any keys and their corresponding values from the original collection that are not present in the given `array` or collection:
 
 ```
 $collection = collect([
@@ -1358,8 +1325,7 @@ collect([])->isNotEmpty();
 
 #### [`join()` {.collection-method}](collections.md#method-join) <a href="#method-join" id="method-join"></a>
 
-The `join` method joins the collection's values with a string. Using this method's second argument, you may also specify how the final element should
-be appended to the string:
+The `join` method joins the collection's values with a string. Using this method's second argument, you may also specify how the final element should be appended to the string:
 
 ```
 collect(['a', 'b', 'c'])->join(', '); // 'a, b, c'
@@ -1471,14 +1437,11 @@ $count = $hugeCollection
     ->count();
 ```
 
-By converting the collection to a `LazyCollection`, we avoid having to allocate a ton of additional memory. Though the original collection still keeps
-_its_ values in memory, the subsequent filters will not. Therefore, virtually no additional memory will be allocated when filtering the collection's
-results.
+By converting the collection to a `LazyCollection`, we avoid having to allocate a ton of additional memory. Though the original collection still keeps _its_ values in memory, the subsequent filters will not. Therefore, virtually no additional memory will be allocated when filtering the collection's results.
 
 #### [`macro()` {.collection-method}](collections.md#method-macro) <a href="#method-macro" id="method-macro"></a>
 
-The static `macro` method allows you to add methods to the `Collection` class at run time. Refer to the documentation on
-[extending collections](collections.md#extending-collections) for more information.
+The static `macro` method allows you to add methods to the `Collection` class at run time. Refer to the documentation on [extending collections](collections.md#extending-collections) for more information.
 
 #### [`make()` {.collection-method}](collections.md#method-make) <a href="#method-make" id="method-make"></a>
 
@@ -1486,8 +1449,7 @@ The static `make` method creates a new collection instance. See the [Creating Co
 
 #### [`map()` {.collection-method}](collections.md#method-map) <a href="#method-map" id="method-map"></a>
 
-The `map` method iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it,
-thus forming a new collection of modified items:
+The `map` method iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it, thus forming a new collection of modified items:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -1502,8 +1464,7 @@ $multiplied->all();
 ```
 
 > \[!WARNING]\
-> Like most other collection methods, `map` returns a new collection instance; it does not modify the collection it is called on. If you want to transform
-> the original collection, use the [`transform`](collections.md#method-transform) method.
+> Like most other collection methods, `map` returns a new collection instance; it does not modify the collection it is called on. If you want to transform the original collection, use the [`transform`](collections.md#method-transform) method.
 
 #### [`mapInto()` {.collection-method}](collections.md#method-mapinto) <a href="#method-mapinto" id="method-mapinto"></a>
 
@@ -1531,8 +1492,7 @@ $currencies->all();
 
 #### [`mapSpread()` {.collection-method}](collections.md#method-mapspread) <a href="#method-mapspread" id="method-mapspread"></a>
 
-The `mapSpread` method iterates over the collection's items, passing each nested item value into the given closure. The closure is free to modify the
-item and return it, thus forming a new collection of modified items:
+The `mapSpread` method iterates over the collection's items, passing each nested item value into the given closure. The closure is free to modify the item and return it, thus forming a new collection of modified items:
 
 ```
 $collection = collect([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -1550,8 +1510,7 @@ $sequence->all();
 
 #### [`mapToGroups()` {.collection-method}](collections.md#method-maptogroups) <a href="#method-maptogroups" id="method-maptogroups"></a>
 
-The `mapToGroups` method groups the collection's items by the given closure. The closure should return an associative array containing a single key /
-value pair, thus forming a new collection of grouped values:
+The `mapToGroups` method groups the collection's items by the given closure. The closure should return an associative array containing a single key / value pair, thus forming a new collection of grouped values:
 
 ```
 $collection = collect([
@@ -1589,8 +1548,7 @@ $grouped->get('Sales')->all();
 
 #### [`mapWithKeys()` {.collection-method}](collections.md#method-mapwithkeys) <a href="#method-mapwithkeys" id="method-mapwithkeys"></a>
 
-The `mapWithKeys` method iterates through the collection and passes each value to the given callback. The callback should return an associative array
-containing a single key / value pair:
+The `mapWithKeys` method iterates through the collection and passes each value to the given callback. The callback should return an associative array containing a single key / value pair:
 
 ```
 $collection = collect([
@@ -1658,8 +1616,7 @@ $median = collect([1, 1, 2, 4])->median();
 
 #### [`merge()` {.collection-method}](collections.md#method-merge) <a href="#method-merge" id="method-merge"></a>
 
-The `merge` method merges the given array or collection with the original collection. If a string key in the given items matches a string key in the
-original collection, the given item's value will overwrite the value in the original collection:
+The `merge` method merges the given array or collection with the original collection. If a string key in the given items matches a string key in the original collection, the given item's value will overwrite the value in the original collection:
 
 ```
 $collection = collect(['product_id' => 1, 'price' => 100]);
@@ -1685,8 +1642,7 @@ $merged->all();
 
 #### [`mergeRecursive()` {.collection-method}](collections.md#method-mergerecursive) <a href="#method-mergerecursive" id="method-mergerecursive"></a>
 
-The `mergeRecursive` method merges the given array or collection recursively with the original collection. If a string key in the given items matches
-a string key in the original collection, then the values for these keys are merged together into an array, and this is done recursively:
+The `mergeRecursive` method merges the given array or collection recursively with the original collection. If a string key in the given items matches a string key in the original collection, then the values for these keys are merged together into an array, and this is done recursively:
 
 ```
 $collection = collect(['product_id' => 1, 'price' => 100]);
@@ -1718,7 +1674,7 @@ $min = collect([1, 2, 3, 4, 5])->min();
 
 #### [`mode()` {.collection-method}](collections.md#method-mode) <a href="#method-mode" id="method-mode"></a>
 
-The `mode` method returns the [mode value](<https://en.wikipedia.org/wiki/Mode_(statistics)>) of a given key:
+The `mode` method returns the [mode value](https://en.wikipedia.org/wiki/Mode_\(statistics\)) of a given key:
 
 ```
 $mode = collect([
@@ -1802,16 +1758,15 @@ $filtered->all();
 
 For the inverse of `only`, see the [except](collections.md#method-except) method.
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-only). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-only).
+{% endhint %}
 
 #### [`pad()` {.collection-method}](collections.md#method-pad) <a href="#method-pad" id="method-pad"></a>
 
-The `pad` method will fill the array with the given value until the array reaches the specified size. This method behaves like the
-[array_pad](https://secure.php.net/manual/en/function.array-pad.php) PHP function.
+The `pad` method will fill the array with the given value until the array reaches the specified size. This method behaves like the [array\_pad](https://secure.php.net/manual/en/function.array-pad.php) PHP function.
 
-To pad to the left, you should specify a negative size. No padding will take place if the absolute value of the given size is less than or equal to
-the length of the array:
+To pad to the left, you should specify a negative size. No padding will take place if the absolute value of the given size is less than or equal to the length of the array:
 
 ```
 $collection = collect(['A', 'B', 'C']);
@@ -1861,8 +1816,7 @@ $percentage = $collection->percentage(fn ($value) => $value === 1);
 // 33.33
 ```
 
-By default, the percentage will be rounded to two decimal places. However, you may customize this behavior by providing a second argument to the
-method:
+By default, the percentage will be rounded to two decimal places. However, you may customize this behavior by providing a second argument to the method:
 
 ```php
 $percentage = $collection->percentage(fn ($value) => $value === 1, precision: 3);
@@ -2110,8 +2064,7 @@ $collection->random();
 // 4 - (retrieved randomly)
 ```
 
-You may pass an integer to `random` to specify how many items you would like to randomly retrieve. A collection of items is always returned when
-explicitly passing the number of items you wish to receive:
+You may pass an integer to `random` to specify how many items you would like to randomly retrieve. A collection of items is always returned when explicitly passing the number of items you wish to receive:
 
 ```
 $random = $collection->random(3);
@@ -2195,8 +2148,7 @@ $collection->reduce(function (int $carry, int $value, int $key) use ($ratio) {
 
 #### [`reduceSpread()` {.collection-method}](collections.md#method-reduce-spread) <a href="#method-reduce-spread" id="method-reduce-spread"></a>
 
-The `reduceSpread` method reduces the collection to an array of values, passing the results of each iteration into the subsequent iteration. This
-method is similar to the `reduce` method; however, it can accept multiple initial values:
+The `reduceSpread` method reduces the collection to an array of values, passing the results of each iteration into the subsequent iteration. This method is similar to the `reduce` method; however, it can accept multiple initial values:
 
 ```
 [$creditsRemaining, $batch] = Image::where('status', 'unprocessed')
@@ -2214,8 +2166,7 @@ method is similar to the `reduce` method; however, it can accept multiple initia
 
 #### [`reject()` {.collection-method}](collections.md#method-reject) <a href="#method-reject" id="method-reject"></a>
 
-The `reject` method filters the collection using the given closure. The closure should return `true` if the item should be removed from the resulting
-collection:
+The `reject` method filters the collection using the given closure. The closure should return `true` if the item should be removed from the resulting collection:
 
 ```
 $collection = collect([1, 2, 3, 4]);
@@ -2233,8 +2184,7 @@ For the inverse of the `reject` method, see the [`filter`](collections.md#method
 
 #### [`replace()` {.collection-method}](collections.md#method-replace) <a href="#method-replace" id="method-replace"></a>
 
-The `replace` method behaves similarly to `merge`; however, in addition to overwriting matching items that have string keys, the `replace` method will
-also overwrite items in the collection that have matching numeric keys:
+The `replace` method behaves similarly to `merge`; however, in addition to overwriting matching items that have string keys, the `replace` method will also overwrite items in the collection that have matching numeric keys:
 
 ```
 $collection = collect(['Taylor', 'Abigail', 'James']);
@@ -2305,8 +2255,7 @@ $collection->search(4);
 // 1
 ```
 
-The search is done using a "loose" comparison, meaning a string with an integer value will be considered equal to an integer of the same value. To use
-"strict" comparison, pass `true` as the second argument to the method:
+The search is done using a "loose" comparison, meaning a string with an integer value will be considered equal to an integer of the same value. To use "strict" comparison, pass `true` as the second argument to the method:
 
 ```
 collect([2, 4, 6, 8])->search('4', strict: true);
@@ -2404,8 +2353,7 @@ $collection->all();
 
 #### [`skipUntil()` {.collection-method}](collections.md#method-skipuntil) <a href="#method-skipuntil" id="method-skipuntil"></a>
 
-The `skipUntil` method skips over items from the collection while the given callback returns `false`. Once the callback returns `true` all of the
-remaining items in the collection will be returned as a new collection:
+The `skipUntil` method skips over items from the collection while the given callback returns `false`. Once the callback returns `true` all of the remaining items in the collection will be returned as a new collection:
 
 ```
 $collection = collect([1, 2, 3, 4]);
@@ -2436,8 +2384,7 @@ $subset->all();
 
 #### [`skipWhile()` {.collection-method}](collections.md#method-skipwhile) <a href="#method-skipwhile" id="method-skipwhile"></a>
 
-The `skipWhile` method skips over items from the collection while the given callback returns `true`. Once the callback returns `false` all of the
-remaining items in the collection will be returned as a new collection:
+The `skipWhile` method skips over items from the collection while the given callback returns `true`. Once the callback returns `false` all of the remaining items in the collection will be returned as a new collection:
 
 ```
 $collection = collect([1, 2, 3, 4]);
@@ -2478,8 +2425,7 @@ $slice->all();
 // [5, 6]
 ```
 
-The returned slice will preserve keys by default. If you do not wish to preserve the original keys, you can use the
-[`values`](collections.md#method-values) method to reindex them.
+The returned slice will preserve keys by default. If you do not wish to preserve the original keys, you can use the [`values`](collections.md#method-values) method to reindex them.
 
 #### [`sliding()` {.collection-method}](collections.md#method-sliding) <a href="#method-sliding" id="method-sliding"></a>
 
@@ -2527,8 +2473,7 @@ collect([1, 2, 3, 4])->sole(function (int $value, int $key) {
 // 2
 ```
 
-You may also pass a key / value pair to the `sole` method, which will return the first element in the collection that matches the given pair, but only
-if it exactly one element matches:
+You may also pass a key / value pair to the `sole` method, which will return the first element in the collection that matches the given pair, but only if it exactly one element matches:
 
 ```
 $collection = collect([
@@ -2553,8 +2498,7 @@ $collection->sole();
 // ['product' => 'Desk', 'price' => 200]
 ```
 
-If there are no elements in the collection that should be returned by the `sole` method, an `\Illuminate\Collections\ItemNotFoundException` exception
-will be thrown. If there is more than one element that should be returned, an `\Illuminate\Collections\MultipleItemsFoundException` will be thrown.
+If there are no elements in the collection that should be returned by the `sole` method, an `\Illuminate\Collections\ItemNotFoundException` exception will be thrown. If there is more than one element that should be returned, an `\Illuminate\Collections\MultipleItemsFoundException` will be thrown.
 
 #### [`some()` {.collection-method}](collections.md#method-some) <a href="#method-some" id="method-some"></a>
 
@@ -2562,8 +2506,7 @@ Alias for the [`contains`](collections.md#method-contains) method.
 
 #### [`sort()` {.collection-method}](collections.md#method-sort) <a href="#method-sort" id="method-sort"></a>
 
-The `sort` method sorts the collection. The sorted collection keeps the original array keys, so in the following example we will use the
-[`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
+The `sort` method sorts the collection. The sorted collection keeps the original array keys, so in the following example we will use the [`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
 
 ```
 $collection = collect([5, 3, 1, 2, 4]);
@@ -2575,17 +2518,15 @@ $sorted->values()->all();
 // [1, 2, 3, 4, 5]
 ```
 
-If your sorting needs are more advanced, you may pass a callback to `sort` with your own algorithm. Refer to the PHP documentation on
-[`uasort`](https://secure.php.net/manual/en/function.uasort.php#refsect1-function.uasort-parameters), which is what the collection's `sort` method
-calls utilizes internally.
+If your sorting needs are more advanced, you may pass a callback to `sort` with your own algorithm. Refer to the PHP documentation on [`uasort`](https://secure.php.net/manual/en/function.uasort.php#refsect1-function.uasort-parameters), which is what the collection's `sort` method calls utilizes internally.
 
-{% hint style="info" %} If you need to sort a collection of nested arrays or objects, see the [`sortBy`](collections.md#method-sortby) and
-[`sortByDesc`](collections.md#method-sortbydesc) methods. {% endhint %}
+{% hint style="info" %}
+If you need to sort a collection of nested arrays or objects, see the \[\`sortBy\`]\(collections.md#method-sortby) and \[\`sortByDesc\`]\(collections.md#method-sortbydesc) methods.
+{% endhint %}
 
 #### [`sortBy()` {.collection-method}](collections.md#method-sortby) <a href="#method-sortby" id="method-sortby"></a>
 
-The `sortBy` method sorts the collection by the given key. The sorted collection keeps the original array keys, so in the following example we will
-use the [`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
+The `sortBy` method sorts the collection by the given key. The sorted collection keeps the original array keys, so in the following example we will use the [`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
 
 ```
 $collection = collect([
@@ -2653,8 +2594,7 @@ $sorted->values()->all();
 */
 ```
 
-If you would like to sort your collection by multiple attributes, you may pass an array of sort operations to the `sortBy` method. Each sort operation
-should be an array consisting of the attribute that you wish to sort by and the direction of the desired sort:
+If you would like to sort your collection by multiple attributes, you may pass an array of sort operations to the `sortBy` method. Each sort operation should be an array consisting of the attribute that you wish to sort by and the direction of the desired sort:
 
 ```
 $collection = collect([
@@ -2726,8 +2666,7 @@ $sorted->values()->all();
 // [5, 4, 3, 2, 1]
 ```
 
-Unlike `sort`, you may not pass a closure to `sortDesc`. Instead, you should use the [`sort`](collections.md#method-sort) method and invert your
-comparison.
+Unlike `sort`, you may not pass a closure to `sortDesc`. Instead, you should use the [`sort`](collections.md#method-sort) method and invert your comparison.
 
 #### [`sortKeys()` {.collection-method}](collections.md#method-sortkeys) <a href="#method-sortkeys" id="method-sortkeys"></a>
 
@@ -2781,9 +2720,7 @@ $sorted->all();
 */
 ```
 
-The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the PHP
-documentation on [`uksort`](https://www.php.net/manual/en/function.uksort.php#refsect1-function.uksort-parameters), which is the PHP function that
-`sortKeysUsing` method utilizes internally.
+The callback must be a comparison function that returns an integer less than, equal to, or greater than zero. For more information, refer to the PHP documentation on [`uksort`](https://www.php.net/manual/en/function.uksort.php#refsect1-function.uksort-parameters), which is the PHP function that `sortKeysUsing` method utilizes internally.
 
 #### [`splice()` {.collection-method}](collections.md#method-splice) <a href="#method-splice" id="method-splice"></a>
 
@@ -2851,8 +2788,7 @@ $groups->all();
 
 #### [`splitIn()` {.collection-method}](collections.md#method-splitin) <a href="#method-splitin" id="method-splitin"></a>
 
-The `splitIn` method breaks a collection into the given number of groups, filling non-terminal groups completely before allocating the remainder to
-the final group:
+The `splitIn` method breaks a collection into the given number of groups, filling non-terminal groups completely before allocating the remainder to the final group:
 
 ```
 $collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -2981,8 +2917,7 @@ $subset->all();
 
 #### [`tap()` {.collection-method}](collections.md#method-tap) <a href="#method-tap" id="method-tap"></a>
 
-The `tap` method passes the collection to the given callback, allowing you to "tap" into the collection at a specific point and do something with the
-items while not affecting the collection itself. The collection is then returned by the `tap` method:
+The `tap` method passes the collection to the given callback, allowing you to "tap" into the collection at a specific point and do something with the items while not affecting the collection itself. The collection is then returned by the `tap` method:
 
 ```
 collect([2, 4, 3, 1, 5])
@@ -3011,8 +2946,7 @@ $collection->all();
 
 #### [`toArray()` {.collection-method}](collections.md#method-toarray) <a href="#method-toarray" id="method-toarray"></a>
 
-The `toArray` method converts the collection into a plain PHP `array`. If the collection's values are
-[Eloquent](../docs/%7B%7Bversion%7D%7D/eloquent/) models, the models will also be converted to arrays:
+The `toArray` method converts the collection into a plain PHP `array`. If the collection's values are [Eloquent](../../docs/%7B%7Bversion%7D%7D/eloquent/) models, the models will also be converted to arrays:
 
 ```
 $collection = collect(['name' => 'Desk', 'price' => 200]);
@@ -3027,8 +2961,7 @@ $collection->toArray();
 ```
 
 > \[!WARNING]\
-> `toArray` also converts all of the collection's nested objects that are an instance of `Arrayable` to an array. If you want to get the raw array underlying
-> the collection, use the [`all`](collections.md#method-all) method instead.
+> `toArray` also converts all of the collection's nested objects that are an instance of `Arrayable` to an array. If you want to get the raw array underlying the collection, use the [`all`](collections.md#method-all) method instead.
 
 #### [`toJson()` {.collection-method}](collections.md#method-tojson) <a href="#method-tojson" id="method-tojson"></a>
 
@@ -3044,8 +2977,7 @@ $collection->toJson();
 
 #### [`transform()` {.collection-method}](collections.md#method-transform) <a href="#method-transform" id="method-transform"></a>
 
-The `transform` method iterates over the collection and calls the given callback with each item in the collection. The items in the collection will be
-replaced by the values returned by the callback:
+The `transform` method iterates over the collection and calls the given callback with each item in the collection. The items in the collection will be replaced by the values returned by the callback:
 
 ```
 $collection = collect([1, 2, 3, 4, 5]);
@@ -3060,8 +2992,7 @@ $collection->all();
 ```
 
 > \[!WARNING]\
-> Unlike most other collection methods, `transform` modifies the collection itself. If you wish to create a new collection instead, use the [`map`](collections.md#method-map)
-> method.
+> Unlike most other collection methods, `transform` modifies the collection itself. If you wish to create a new collection instead, use the [`map`](collections.md#method-map) method.
 
 #### [`undot()` {.collection-method}](collections.md#method-undot) <a href="#method-undot" id="method-undot"></a>
 
@@ -3101,8 +3032,7 @@ $person->toArray();
 
 #### [`union()` {.collection-method}](collections.md#method-union) <a href="#method-union" id="method-union"></a>
 
-The `union` method adds the given array to the collection. If the given array contains keys that are already in the original collection, the original
-collection's values will be preferred:
+The `union` method adds the given array to the collection. If the given array contains keys that are already in the original collection, the original collection's values will be preferred:
 
 ```
 $collection = collect([1 => ['a'], 2 => ['b']]);
@@ -3116,8 +3046,7 @@ $union->all();
 
 #### [`unique()` {.collection-method}](collections.md#method-unique) <a href="#method-unique" id="method-unique"></a>
 
-The `unique` method returns all of the unique items in the collection. The returned collection keeps the original array keys, so in the following
-example we will use the [`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
+The `unique` method returns all of the unique items in the collection. The returned collection keeps the original array keys, so in the following example we will use the [`values`](collections.md#method-values) method to reset the keys to consecutively numbered indexes:
 
 ```
 $collection = collect([1, 1, 2, 2, 3, 4, 2]);
@@ -3171,16 +3100,15 @@ $unique->values()->all();
 */
 ```
 
-The `unique` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer
-of the same value. Use the [`uniqueStrict`](collections.md#method-uniquestrict) method to filter using "strict" comparisons.
+The `unique` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value. Use the [`uniqueStrict`](collections.md#method-uniquestrict) method to filter using "strict" comparisons.
 
-{% hint style="info" %} This method's behavior is modified when using
-[Eloquent Collections](../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-unique). {% endhint %}
+{% hint style="info" %}
+This method's behavior is modified when using \[Eloquent Collections]\(../docs/%7B%7Bversion%7D%7D/eloquent-collections/#method-unique).
+{% endhint %}
 
 #### [`uniqueStrict()` {.collection-method}](collections.md#method-uniquestrict) <a href="#method-uniquestrict" id="method-uniquestrict"></a>
 
-This method has the same signature as the [`unique`](collections.md#method-unique) method; however, all values are compared using "strict"
-comparisons.
+This method has the same signature as the [`unique`](collections.md#method-unique) method; however, all values are compared using "strict" comparisons.
 
 #### [`unless()` {.collection-method}](collections.md#method-unless) <a href="#method-unless" id="method-unless"></a>
 
@@ -3202,8 +3130,7 @@ $collection->all();
 // [1, 2, 3, 5]
 ```
 
-A second callback may be passed to the `unless` method. The second callback will be executed when the first argument given to the `unless` method
-evaluates to `true`:
+A second callback may be passed to the `unless` method. The second callback will be executed when the first argument given to the `unless` method evaluates to `true`:
 
 ```
 $collection = collect([1, 2, 3]);
@@ -3286,8 +3213,7 @@ $values->all();
 
 #### [`when()` {.collection-method}](collections.md#method-when) <a href="#method-when" id="method-when"></a>
 
-The `when` method will execute the given callback when the first argument given to the method evaluates to `true`. The collection instance and the
-first argument given to the `when` method will be provided to the closure:
+The `when` method will execute the given callback when the first argument given to the method evaluates to `true`. The collection instance and the first argument given to the `when` method will be provided to the closure:
 
 ```
 $collection = collect([1, 2, 3]);
@@ -3305,8 +3231,7 @@ $collection->all();
 // [1, 2, 3, 4]
 ```
 
-A second callback may be passed to the `when` method. The second callback will be executed when the first argument given to the `when` method
-evaluates to `false`:
+A second callback may be passed to the `when` method. The second callback will be executed when the first argument given to the `when` method evaluates to `false`:
 
 ```
 $collection = collect([1, 2, 3]);
@@ -3438,11 +3363,9 @@ $filtered->all();
 */
 ```
 
-The `where` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer
-of the same value. Use the [`whereStrict`](collections.md#method-wherestrict) method to filter using "strict" comparisons.
+The `where` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value. Use the [`whereStrict`](collections.md#method-wherestrict) method to filter using "strict" comparisons.
 
-Optionally, you may pass a comparison operator as the second parameter. Supported operators are: '===', '!==', '!=', '==', '=', '<>', '>', '<', '>=',
-and '<=':
+Optionally, you may pass a comparison operator as the second parameter. Supported operators are: '===', '!==', '!=', '==', '=', '<>', '>', '<', '>=', and '<=':
 
 ```
 $collection = collect([
@@ -3517,13 +3440,11 @@ $filtered->all();
 */
 ```
 
-The `whereIn` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer
-of the same value. Use the [`whereInStrict`](collections.md#method-whereinstrict) method to filter using "strict" comparisons.
+The `whereIn` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value. Use the [`whereInStrict`](collections.md#method-whereinstrict) method to filter using "strict" comparisons.
 
 #### [`whereInStrict()` {.collection-method}](collections.md#method-whereinstrict) <a href="#method-whereinstrict" id="method-whereinstrict"></a>
 
-This method has the same signature as the [`whereIn`](collections.md#method-wherein) method; however, all values are compared using "strict"
-comparisons.
+This method has the same signature as the [`whereIn`](collections.md#method-wherein) method; however, all values are compared using "strict" comparisons.
 
 #### [`whereInstanceOf()` {.collection-method}](collections.md#method-whereinstanceof) <a href="#method-whereinstanceof" id="method-whereinstanceof"></a>
 
@@ -3595,13 +3516,11 @@ $filtered->all();
 */
 ```
 
-The `whereNotIn` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an
-integer of the same value. Use the [`whereNotInStrict`](collections.md#method-wherenotinstrict) method to filter using "strict" comparisons.
+The `whereNotIn` method uses "loose" comparisons when checking item values, meaning a string with an integer value will be considered equal to an integer of the same value. Use the [`whereNotInStrict`](collections.md#method-wherenotinstrict) method to filter using "strict" comparisons.
 
 #### [`whereNotInStrict()` {.collection-method}](collections.md#method-wherenotinstrict) <a href="#method-wherenotinstrict" id="method-wherenotinstrict"></a>
 
-This method has the same signature as the [`whereNotIn`](collections.md#method-wherenotin) method; however, all values are compared using "strict"
-comparisons.
+This method has the same signature as the [`whereNotIn`](collections.md#method-wherenotin) method; however, all values are compared using "strict" comparisons.
 
 #### [`whereNotNull()` {.collection-method}](collections.md#method-wherenotnull) <a href="#method-wherenotnull" id="method-wherenotnull"></a>
 
@@ -3690,19 +3609,9 @@ $zipped->all();
 
 ## [Higher Order Messages](collections.md#higher-order-messages) <a href="#higher-order-messages" id="higher-order-messages"></a>
 
-Collections also provide support for "higher order messages", which are short-cuts for performing common actions on collections. The collection
-methods that provide higher order messages are: [`average`](collections.md#method-average), [`avg`](collections.md#method-avg),
-[`contains`](collections.md#method-contains), [`each`](collections.md#method-each), [`every`](collections.md#method-every),
-[`filter`](collections.md#method-filter), [`first`](collections.md#method-first), [`flatMap`](collections.md#method-flatmap),
-[`groupBy`](collections.md#method-groupby), [`keyBy`](collections.md#method-keyby), [`map`](collections.md#method-map),
-[`max`](collections.md#method-max), [`min`](collections.md#method-min), [`partition`](collections.md#method-partition),
-[`reject`](collections.md#method-reject), [`skipUntil`](collections.md#method-skipuntil), [`skipWhile`](collections.md#method-skipwhile),
-[`some`](collections.md#method-some), [`sortBy`](collections.md#method-sortby), [`sortByDesc`](collections.md#method-sortbydesc),
-[`sum`](collections.md#method-sum), [`takeUntil`](collections.md#method-takeuntil), [`takeWhile`](collections.md#method-takewhile), and
-[`unique`](collections.md#method-unique).
+Collections also provide support for "higher order messages", which are short-cuts for performing common actions on collections. The collection methods that provide higher order messages are: [`average`](collections.md#method-average), [`avg`](collections.md#method-avg), [`contains`](collections.md#method-contains), [`each`](collections.md#method-each), [`every`](collections.md#method-every), [`filter`](collections.md#method-filter), [`first`](collections.md#method-first), [`flatMap`](collections.md#method-flatmap), [`groupBy`](collections.md#method-groupby), [`keyBy`](collections.md#method-keyby), [`map`](collections.md#method-map), [`max`](collections.md#method-max), [`min`](collections.md#method-min), [`partition`](collections.md#method-partition), [`reject`](collections.md#method-reject), [`skipUntil`](collections.md#method-skipuntil), [`skipWhile`](collections.md#method-skipwhile), [`some`](collections.md#method-some), [`sortBy`](collections.md#method-sortby), [`sortByDesc`](collections.md#method-sortbydesc), [`sum`](collections.md#method-sum), [`takeUntil`](collections.md#method-takeuntil), [`takeWhile`](collections.md#method-takewhile), and [`unique`](collections.md#method-unique).
 
-Each higher order message can be accessed as a dynamic property on a collection instance. For instance, let's use the `each` higher order message to
-call a method on each object within a collection:
+Each higher order message can be accessed as a dynamic property on a collection instance. For instance, let's use the `each` higher order message to call a method on each object within a collection:
 
 ```
 use App\Models\User;
@@ -3727,13 +3636,9 @@ return $users->sum->votes;
 > \[!WARNING]\
 > Before learning more about Maginium's lazy collections, take some time to familiarize yourself with [PHP generators](https://www.php.net/manual/en/language.generators.overview.php).
 
-To supplement the already powerful `Collection` class, the `LazyCollection` class leverages PHP's
-[generators](https://www.php.net/manual/en/language.generators.overview.php) to allow you to work with very large datasets while keeping memory usage
-low.
+To supplement the already powerful `Collection` class, the `LazyCollection` class leverages PHP's [generators](https://www.php.net/manual/en/language.generators.overview.php) to allow you to work with very large datasets while keeping memory usage low.
 
-For example, imagine your application needs to process a multi-gigabyte log file while taking advantage of Maginium's collection methods to parse the
-logs. Instead of reading the entire file into memory at once, lazy collections may be used to keep only a small part of the file in memory at a given
-time:
+For example, imagine your application needs to process a multi-gigabyte log file while taking advantage of Maginium's collection methods to parse the logs. Instead of reading the entire file into memory at once, lazy collections may be used to keep only a small part of the file in memory at a given time:
 
 ```
 use App\Models\LogEntry;
@@ -3752,8 +3657,7 @@ LazyCollection::make(function () {
 });
 ```
 
-Or, imagine you need to iterate through 10,000 Eloquent models. When using traditional Maginium collections, all 10,000 Eloquent models must be loaded
-into memory at the same time:
+Or, imagine you need to iterate through 10,000 Eloquent models. When using traditional Maginium collections, all 10,000 Eloquent models must be loaded into memory at the same time:
 
 ```
 use App\Models\User;
@@ -3763,9 +3667,7 @@ $users = User::all()->filter(function (User $user) {
 });
 ```
 
-However, the query builder's `cursor` method returns a `LazyCollection` instance. This allows you to still only run a single query against the
-database but also only keep one Eloquent model loaded in memory at a time. In this example, the `filter` callback is not executed until we actually
-iterate over each user individually, allowing for a drastic reduction in memory usage:
+However, the query builder's `cursor` method returns a `LazyCollection` instance. This allows you to still only run a single query against the database but also only keep one Eloquent model loaded in memory at a time. In this example, the `filter` callback is not executed until we actually iterate over each user individually, allowing for a drastic reduction in memory usage:
 
 ```
 use App\Models\User;
@@ -3797,45 +3699,9 @@ LazyCollection::make(function () {
 
 ### [The Enumerable Contract](collections.md#the-enumerable-contract) <a href="#the-enumerable-contract" id="the-enumerable-contract"></a>
 
-Almost all methods available on the `Collection` class are also available on the `LazyCollection` class. Both of these classes implement the
-`Maginium\Framework\Support\Enumerable` contract, which defines the following methods:
+Almost all methods available on the `Collection` class are also available on the `LazyCollection` class. Both of these classes implement the `Maginium\Framework\Support\Enumerable` contract, which defines the following methods:
 
-[all](collections.md#method-all) [average](collections.md#method-average) [avg](collections.md#method-avg) [chunk](collections.md#method-chunk)
-[chunkWhile](collections.md#method-chunkwhile) [collapse](collections.md#method-collapse) [collect](collections.md#method-collect)
-[combine](collections.md#method-combine) [concat](collections.md#method-concat) [contains](collections.md#method-contains)
-[containsStrict](collections.md#method-containsstrict) [count](collections.md#method-count) [countBy](collections.md#method-countBy)
-[crossJoin](collections.md#method-crossjoin) [dd](collections.md#method-dd) [diff](collections.md#method-diff)
-[diffAssoc](collections.md#method-diffassoc) [diffKeys](collections.md#method-diffkeys) [dump](collections.md#method-dump)
-[duplicates](collections.md#method-duplicates) [duplicatesStrict](collections.md#method-duplicatesstrict) [each](collections.md#method-each)
-[eachSpread](collections.md#method-eachspread) [every](collections.md#method-every) [except](collections.md#method-except)
-[filter](collections.md#method-filter) [first](collections.md#method-first) [firstOrFail](collections.md#method-first-or-fail)
-[firstWhere](collections.md#method-first-where) [flatMap](collections.md#method-flatmap) [flatten](collections.md#method-flatten)
-[flip](collections.md#method-flip) [forPage](collections.md#method-forpage) [get](collections.md#method-get) [groupBy](collections.md#method-groupby)
-[has](collections.md#method-has) [implode](collections.md#method-implode) [intersect](collections.md#method-intersect)
-[intersectAssoc](collections.md#method-intersectAssoc) [intersectByKeys](collections.md#method-intersectbykeys)
-[isEmpty](collections.md#method-isempty) [isNotEmpty](collections.md#method-isnotempty) [join](collections.md#method-join)
-[keyBy](collections.md#method-keyby) [keys](collections.md#method-keys) [last](collections.md#method-last) [macro](collections.md#method-macro)
-[make](collections.md#method-make) [map](collections.md#method-map) [mapInto](collections.md#method-mapinto)
-[mapSpread](collections.md#method-mapspread) [mapToGroups](collections.md#method-maptogroups) [mapWithKeys](collections.md#method-mapwithkeys)
-[max](collections.md#method-max) [median](collections.md#method-median) [merge](collections.md#method-merge)
-[mergeRecursive](collections.md#method-mergerecursive) [min](collections.md#method-min) [mode](collections.md#method-mode)
-[nth](collections.md#method-nth) [only](collections.md#method-only) [pad](collections.md#method-pad) [partition](collections.md#method-partition)
-[pipe](collections.md#method-pipe) [pluck](collections.md#method-pluck) [random](collections.md#method-random) [reduce](collections.md#method-reduce)
-[reject](collections.md#method-reject) [replace](collections.md#method-replace) [replaceRecursive](collections.md#method-replacerecursive)
-[reverse](collections.md#method-reverse) [search](collections.md#method-search) [shuffle](collections.md#method-shuffle)
-[skip](collections.md#method-skip) [slice](collections.md#method-slice) [sole](collections.md#method-sole) [some](collections.md#method-some)
-[sort](collections.md#method-sort) [sortBy](collections.md#method-sortby) [sortByDesc](collections.md#method-sortbydesc)
-[sortKeys](collections.md#method-sortkeys) [sortKeysDesc](collections.md#method-sortkeysdesc) [split](collections.md#method-split)
-[sum](collections.md#method-sum) [take](collections.md#method-take) [tap](collections.md#method-tap) [times](collections.md#method-times)
-[toArray](collections.md#method-toarray) [toJson](collections.md#method-tojson) [union](collections.md#method-union)
-[unique](collections.md#method-unique) [uniqueStrict](collections.md#method-uniquestrict) [unless](collections.md#method-unless)
-[unlessEmpty](collections.md#method-unlessempty) [unlessNotEmpty](collections.md#method-unlessnotempty) [unwrap](collections.md#method-unwrap)
-[values](collections.md#method-values) [when](collections.md#method-when) [whenEmpty](collections.md#method-whenempty)
-[whenNotEmpty](collections.md#method-whennotempty) [where](collections.md#method-where) [whereStrict](collections.md#method-wherestrict)
-[whereBetween](collections.md#method-wherebetween) [whereIn](collections.md#method-wherein) [whereInStrict](collections.md#method-whereinstrict)
-[whereInstanceOf](collections.md#method-whereinstanceof) [whereNotBetween](collections.md#method-wherenotbetween)
-[whereNotIn](collections.md#method-wherenotin) [whereNotInStrict](collections.md#method-wherenotinstrict) [wrap](collections.md#method-wrap)
-[zip](collections.md#method-zip)
+[all](collections.md#method-all) [average](collections.md#method-average) [avg](collections.md#method-avg) [chunk](collections.md#method-chunk) [chunkWhile](collections.md#method-chunkwhile) [collapse](collections.md#method-collapse) [collect](collections.md#method-collect) [combine](collections.md#method-combine) [concat](collections.md#method-concat) [contains](collections.md#method-contains) [containsStrict](collections.md#method-containsstrict) [count](collections.md#method-count) [countBy](collections.md#method-countBy) [crossJoin](collections.md#method-crossjoin) [dd](collections.md#method-dd) [diff](collections.md#method-diff) [diffAssoc](collections.md#method-diffassoc) [diffKeys](collections.md#method-diffkeys) [dump](collections.md#method-dump) [duplicates](collections.md#method-duplicates) [duplicatesStrict](collections.md#method-duplicatesstrict) [each](collections.md#method-each) [eachSpread](collections.md#method-eachspread) [every](collections.md#method-every) [except](collections.md#method-except) [filter](collections.md#method-filter) [first](collections.md#method-first) [firstOrFail](collections.md#method-first-or-fail) [firstWhere](collections.md#method-first-where) [flatMap](collections.md#method-flatmap) [flatten](collections.md#method-flatten) [flip](collections.md#method-flip) [forPage](collections.md#method-forpage) [get](collections.md#method-get) [groupBy](collections.md#method-groupby) [has](collections.md#method-has) [implode](collections.md#method-implode) [intersect](collections.md#method-intersect) [intersectAssoc](collections.md#method-intersectAssoc) [intersectByKeys](collections.md#method-intersectbykeys) [isEmpty](collections.md#method-isempty) [isNotEmpty](collections.md#method-isnotempty) [join](collections.md#method-join) [keyBy](collections.md#method-keyby) [keys](collections.md#method-keys) [last](collections.md#method-last) [macro](collections.md#method-macro) [make](collections.md#method-make) [map](collections.md#method-map) [mapInto](collections.md#method-mapinto) [mapSpread](collections.md#method-mapspread) [mapToGroups](collections.md#method-maptogroups) [mapWithKeys](collections.md#method-mapwithkeys) [max](collections.md#method-max) [median](collections.md#method-median) [merge](collections.md#method-merge) [mergeRecursive](collections.md#method-mergerecursive) [min](collections.md#method-min) [mode](collections.md#method-mode) [nth](collections.md#method-nth) [only](collections.md#method-only) [pad](collections.md#method-pad) [partition](collections.md#method-partition) [pipe](collections.md#method-pipe) [pluck](collections.md#method-pluck) [random](collections.md#method-random) [reduce](collections.md#method-reduce) [reject](collections.md#method-reject) [replace](collections.md#method-replace) [replaceRecursive](collections.md#method-replacerecursive) [reverse](collections.md#method-reverse) [search](collections.md#method-search) [shuffle](collections.md#method-shuffle) [skip](collections.md#method-skip) [slice](collections.md#method-slice) [sole](collections.md#method-sole) [some](collections.md#method-some) [sort](collections.md#method-sort) [sortBy](collections.md#method-sortby) [sortByDesc](collections.md#method-sortbydesc) [sortKeys](collections.md#method-sortkeys) [sortKeysDesc](collections.md#method-sortkeysdesc) [split](collections.md#method-split) [sum](collections.md#method-sum) [take](collections.md#method-take) [tap](collections.md#method-tap) [times](collections.md#method-times) [toArray](collections.md#method-toarray) [toJson](collections.md#method-tojson) [union](collections.md#method-union) [unique](collections.md#method-unique) [uniqueStrict](collections.md#method-uniquestrict) [unless](collections.md#method-unless) [unlessEmpty](collections.md#method-unlessempty) [unlessNotEmpty](collections.md#method-unlessnotempty) [unwrap](collections.md#method-unwrap) [values](collections.md#method-values) [when](collections.md#method-when) [whenEmpty](collections.md#method-whenempty) [whenNotEmpty](collections.md#method-whennotempty) [where](collections.md#method-where) [whereStrict](collections.md#method-wherestrict) [whereBetween](collections.md#method-wherebetween) [whereIn](collections.md#method-wherein) [whereInStrict](collections.md#method-whereinstrict) [whereInstanceOf](collections.md#method-whereinstanceof) [whereNotBetween](collections.md#method-wherenotbetween) [whereNotIn](collections.md#method-wherenotin) [whereNotInStrict](collections.md#method-wherenotinstrict) [wrap](collections.md#method-wrap) [zip](collections.md#method-zip)
 
 > \[!WARNING]\
 > Methods that mutate the collection (such as `shift`, `pop`, `prepend` etc.) are **not** available on the `LazyCollection` class.
@@ -3846,8 +3712,7 @@ In addition to the methods defined in the `Enumerable` contract, the `LazyCollec
 
 #### [`takeUntilTimeout()` {.collection-method}](collections.md#method-takeUntilTimeout) <a href="#method-takeuntiltimeout" id="method-takeuntiltimeout"></a>
 
-The `takeUntilTimeout` method returns a new lazy collection that will enumerate values until the specified time. After that time, the collection will
-then stop enumerating:
+The `takeUntilTimeout` method returns a new lazy collection that will enumerate values until the specified time. After that time, the collection will then stop enumerating:
 
 ```
 $lazyCollection = LazyCollection::times(INF)
@@ -3866,8 +3731,7 @@ $lazyCollection->each(function (int $number) {
 // 59
 ```
 
-To illustrate the usage of this method, imagine an application that submits invoices from the database using a cursor. You could define a
-[scheduled task](../docs/%7B%7Bversion%7D%7D/scheduling/) that runs every 15 minutes and only processes invoices for a maximum of 14 minutes:
+To illustrate the usage of this method, imagine an application that submits invoices from the database using a cursor. You could define a [scheduled task](../../docs/%7B%7Bversion%7D%7D/scheduling/) that runs every 15 minutes and only processes invoices for a maximum of 14 minutes:
 
 ```
 use App\Models\Invoice;
@@ -3882,8 +3746,7 @@ Invoice::pending()->cursor()
 
 #### [`tapEach()` {.collection-method}](collections.md#method-tapEach) <a href="#method-tapeach" id="method-tapeach"></a>
 
-While the `each` method calls the given callback for each item in the collection right away, the `tapEach` method only calls the given callback as the
-items are being pulled out of the list one by one:
+While the `each` method calls the given callback for each item in the collection right away, the `tapEach` method only calls the given callback as the items are being pulled out of the list one by one:
 
 ```
 // Nothing has been dumped so far...
@@ -3901,8 +3764,7 @@ $array = $lazyCollection->take(3)->all();
 
 #### [`throttle()` {.collection-method}](collections.md#method-throttle) <a href="#method-throttle" id="method-throttle"></a>
 
-The `throttle` method will throttle the lazy collection such that each value is returned after the specified number of seconds. This method is
-especially useful for situations where you may be interacting with external APIs that rate limit incoming requests:
+The `throttle` method will throttle the lazy collection such that each value is returned after the specified number of seconds. This method is especially useful for situations where you may be interacting with external APIs that rate limit incoming requests:
 
 ```php
 use App\Models\User;
@@ -3917,8 +3779,7 @@ User::where('vip', true)
 
 #### [`remember()` {.collection-method}](collections.md#method-remember) <a href="#method-remember" id="method-remember"></a>
 
-The `remember` method returns a new lazy collection that will remember any values that have already been enumerated and will not retrieve them again
-on subsequent collection enumerations:
+The `remember` method returns a new lazy collection that will remember any values that have already been enumerated and will not retrieve them again on subsequent collection enumerations:
 
 ```
 // No query has been executed yet...
