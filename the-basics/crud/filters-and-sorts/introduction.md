@@ -4,7 +4,6 @@ Maginium Framework\Crud is an elegant and efficient filtering and sorting packag
 
 Features :
 
-* Livewire support
 * Rename and restrict fields
 * Various filter methods
 * Simple installation and usage
@@ -12,9 +11,9 @@ Features :
 * Custom filters
 * Multi-column sort
 
-Maginium Framework\Crud is not only developer-friendly but also front-end developer-friendly. Frontend developers can effortlessly use filtering and sorting of the APIs by using the popular [JavaScript qs](https://www.npmjs.com/package/qs) package.
+Maginium Framework\Crud is not only developer-friendly but also front-end developer-friendly. Frontend developers can effortlessly filter and sort APIs using the popular [JavaScript qs](https://www.npmjs.com/package/qs) package.
 
-The way this package handles filters is inspired by strapi's [filter](https://docs.strapi.io/dev-docs/api/rest/filters-locale-publication#filtering) and [sort](https://docs.strapi.io/dev-docs/api/rest/sort-pagination#sorting) functionality.
+Strapi's filter and sort functionality inspires the way this package handles filters.
 
 ### How Does Framework\Crud Work?
 
@@ -24,12 +23,10 @@ Add `filter()` to your query.
 
 ```php
 $posts = Post::filter()->get();
-
 ```
 
 That's it! Now you can filter your posts by adding query string parameters to the URL.
 
 ```
 GET /api/posts?filters[title][$contains]=Framework\Crud
-
 ```

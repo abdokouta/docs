@@ -1,8 +1,8 @@
-# Apply Sort
+# Sorts
 
 ## Apply Basic Sorting
 
-Queries can accept a sort parameter that allows sorting on one or multiple fields with the following syntax's:
+Queries can accept a sort parameter that allows sorting on one or multiple fields with the following syntax:
 
 `GET /api/:pluralApiId?sort=value` to sort on 1 field
 
@@ -71,4 +71,6 @@ await request(`/api/posts?${query}`);
 
 ```
 
-::: tip Sorting by nested relationships is not supported by the package as of now. :::
+{% hint style="info" %}
+Sorting by nested relationships is not supported by the package as of now.&#x20;
+{% endhint %}

@@ -1,8 +1,10 @@
-# filter
+# Filters
 
 #### Simple Filtering
 
-::: tip In javascript uses [qs](https://www.npmjs.com/package/qs) directly to generate complex queries instead of creating them manually. Examples in this documentation showcase how you can use `qs`. :::
+{% hint style="info" %}
+Javascript uses [qs](https://www.npmjs.com/package/qs) directly to generate complex queries instead of creating them manually. Examples in this documentation showcase how you can use `qs`.
+{% endhint %}
 
 **Eq Filter**
 
