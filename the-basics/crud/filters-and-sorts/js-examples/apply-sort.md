@@ -28,7 +28,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/articles?${query}`);
-
 ```
 
 Sort using 2 fields and set the order
@@ -44,7 +43,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/articles?${query}`);
-
 ```
 
 ## Apply Sort by Relationships
@@ -68,7 +66,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/posts?${query}`);
-
 ```
 
 {% hint style="info" %}

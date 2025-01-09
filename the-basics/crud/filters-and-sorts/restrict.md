@@ -33,7 +33,6 @@ private array $filters = [
   EqualFilter::class,
   InFilter::class,
 ];
-
 ```
 
 * Filters passed as an array to the `filterBy()` function.
@@ -44,7 +43,6 @@ note that, `filterBy` will overwrite all other defined filters.
 Post::filterBy('$eq', '$in')->filter()->get();
 // or
 Post::filterBy(EqualFilter::class, InFilter::class)->filter()->get();
-
 ```
 
 #### Restrict by Field
@@ -60,7 +58,6 @@ $filterFields = [
   'title:$eq',         // same as above
   'title',             // this won't be restricted to any operator
 ];
-
 ```
 
 The drawback here is that you have to define all the allowed fields, regardless of any restriction fields.
@@ -73,18 +70,17 @@ $restrictedFields = [
   'title:$eq,$in'             // same as above
   'title'                     // this won't be restricted to any operator
 ];
-
 ```
 
 * **Method 3: Finally, you can set it on the Eloquent builder, which takes the highest priority (overwrite all the above options)**
 
 ```php
 Post::restrictedFilters(['title' => ['$eq']])->filter()->get();
-
-
 ```
 
-::: warning All field-restricted filter operations are respected to filters defined in $filter in the model. This means you are not allowed to restrict a field operation not permitted in restricted fields. :::
+{% hint style="warning" %}
+All field-restricted filter operations are respected to filters defined in $filter in the model. This means you are not allowed to restrict a field operation not permitted in restricted fields.
+{% endhint %}
 
 ```php
 $filters = ['$eq'];

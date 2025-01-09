@@ -9,7 +9,6 @@ public function posts(): Illuminate\Database\Eloquent\Relations\HasMany // This 
 {
     return $this->hasMany(Post::class);
 }
-
 ```
 
 you can overwrite the allowed columns as follows:
@@ -27,7 +26,6 @@ protected $sortFields = [
   'name',
   'mobile',
 ];
-
 ```
 
 any field other than email, mobile, or posts will be rejected when filtering.
@@ -40,7 +38,8 @@ to overwrite allowed fields in the controller add `filterFields` or `sortFields`
 Post::filterFields('title', 'created_at')->filter()->get();
 
 Post::sortFields('created_at', 'updated_at')->sort()->get();
-
 ```
 
-::: tip filterFields and sortFields will overwrite fields defined in the model. :::
+{% hint style="info" %}
+filterFields and sortFields will overwrite fields defined in the model.
+{% endhint %}

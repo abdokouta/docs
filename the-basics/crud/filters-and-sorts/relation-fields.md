@@ -18,7 +18,6 @@ use Filterable;
         return $this->hasMany(Tag::class);
     }
 }
-
 ```
 
 Note that Framework\Crud read available fields from related models, you'll want to edit the `$filterFields` property in the related model. read more about `$filterFields` in [allowed fields](broken-reference) section.
@@ -32,7 +31,6 @@ use Filterable;
         'title',
     ];
 }
-
 ```
 
 Now you're all set to apply relation filtering! You can find some examples on the filter examples page.
@@ -59,7 +57,6 @@ use Sortable;
         return $this->hasMany(Tag::class);
     }
 }
-
 ```
 
 Check out the sort examples page for some examples.

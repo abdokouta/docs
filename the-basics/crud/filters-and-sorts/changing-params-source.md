@@ -8,7 +8,6 @@ By Default, Framework\Crud gets params from filters index in query params, overw
 // this will get filters from find query params
 // `GET /api/users?find[name][$eq]=John`
 Post::filter(request()->query('find'))->get();
-
 ```
 
 ```php
@@ -29,7 +28,6 @@ Post::filter([
                 ],
             ],
         ])->get();
-
 ```
 
 ## Sort
@@ -39,5 +37,4 @@ Post::sort([
             'title',
             'id:desc'
         ])->get();
-
 ```

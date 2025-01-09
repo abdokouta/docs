@@ -14,7 +14,6 @@ protected $renamedFilterFields = [
   'mobile' => 'phone', // The actual database column is 'mobile', but the client should use 'phone'.
   'posts'  => 'writing', // The actual relation is 'posts', but the client should use 'writing'.
 ];
-
 ```
 
 In this case, the client should send `phone` to filter by the mobile column in the database.
@@ -33,7 +32,6 @@ protected $sortFields = [
   'name',
   'mobile' => 'phone', // The actual database column is 'mobile', but the client should use 'phone' for sorting.
 ];
-
 ```
 
 In this case, the client should send `phone` to sort by the mobile column in the database.
@@ -51,7 +49,8 @@ Post::sortFields([
     'created_at' => 'published_date',
     'updated_at'
   ])->sort()->get();
-
 ```
 
-::: tip Note that `sortFields` and `renamedFilterFields` will overwrite fields defined in the model. :::
+{% hint style="info" %}
+Note that `sortFields` and `renamedFilterFields` will overwrite fields defined in the model.
+{% endhint %}

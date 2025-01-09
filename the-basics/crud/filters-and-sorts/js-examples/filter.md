@@ -25,7 +25,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/users?${query}`);
-
 ```
 
 **In Filter**
@@ -47,7 +46,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/restaurants?${query}`);
-
 ```
 
 **Between Filter**
@@ -69,7 +67,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/users?${query}`);
-
 ```
 
 #### Complex Filtering
@@ -107,7 +104,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/books?${query}`);
-
 ```
 
 #### Relation Filtering
@@ -135,10 +131,11 @@ const query = qs.stringify({
 });
 
 await request(`/api/restaurants?${query}`);
-
 ```
 
-::: warning Relation must be defined in the Maginium model. Read more about relation filtering at relations in the advanced section. :::
+{% hint style="warning" %}
+Relation must be defined in the Maginium model. Read more about relation filtering at relations in the advanced section.
+{% endhint %}
 
 #### Complex Relation Filtering
 
@@ -168,7 +165,6 @@ const query = qs.stringify({
 });
 
 await request(`/api/restaurants?${query}`);
-
 ```
 
 **Maginium Example**
@@ -192,7 +188,6 @@ $params = [
 ];
 
 $restaurants = Restaurant::filter($params)->get();
-
 ```
 
 Read more about at params source in the advanced section.
