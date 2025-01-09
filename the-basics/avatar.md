@@ -1,7 +1,7 @@
 # 👤 Avatar
 
-* [Introduction](avatar.md#introduction)
-* [Usage](avatar.md#usage)
+- [Introduction](avatar.md#introduction)
+- [Usage](avatar.md#usage)
 
 <a name="introduction" href="#introduction" id="introduction"></a>
 
@@ -9,15 +9,14 @@
 
 Display a unique avatar for any user based on their (initials) name.
 
-{% hint style="warning" %}
-This Module is inspired by [Laravolt](https://github.com/laravolt/avatar)
-{% endhint %}
+{% hint style="warning" %} This Module is inspired by [Laravolt](https://github.com/laravolt/avatar) {% endhint %}
 
 <a name="usage" href="#usage" id="usage"></a>
 
 ## [Usage](avatar.md#usage)
 
 <a name="output-as-base64" href="#output-as-base64" id="output-as-base64"></a>
+
 #### [Output as Base64](avatar.md#output-as-base64)
 
 ```php
@@ -49,9 +48,7 @@ Avatar::create('uyab@example.net')->toGravatar(['d' => 'identicon', 'r' => 'pg',
 // Output: http://gravatar.com/avatar/...&d=identicon&r=pg&s=100
 ```
 
-{% hint style="info” %}
-Gravatar parameter reference
-{% endhint %}
+{% hint style="info” %} Gravatar parameter reference {% endhint %}
 
 <a name="output-as-svg" href="#output-as-svg" id="output-as-svg"></a>
 
@@ -96,7 +93,8 @@ Returns an instance of the Intervention image object, enabling further processin
 
 #### [Non-ASCII Character](avatar.md#non-ascii-character)
 
-The library tries to render initials as supplied. For non-ASCII characters (e.g., ā, Ě), their visibility depends on font support. Alternatively, non-ASCII characters can be converted to their closest ASCII counterparts using Stringy.
+The library tries to render initials as supplied. For non-ASCII characters (e.g., ā, Ě), their visibility depends on font support. Alternatively,
+non-ASCII characters can be converted to their closest ASCII counterparts using Stringy.
 
 <a name="override-config-at-runtime" href="#override-config-at-runtime" id="override-config-at-runtime"></a>
 

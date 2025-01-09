@@ -1,0 +1,15 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "--- icon: hand-wave ---",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.md\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "mdx-to-md": "^0.3.2"
+  }
+}

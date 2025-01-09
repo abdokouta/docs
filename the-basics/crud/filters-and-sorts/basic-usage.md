@@ -10,7 +10,7 @@ use Maginium\Framework\Crud\Traits\Filterable;
 class Post extends Model
 {
     use Filterable;
-    
+
     //
 }
 ```
@@ -29,7 +29,8 @@ class PostController extends Controller
 }
 ```
 
-By default, it gives access to all filters available. here is the list of [available filters](broken-reference). if you want to explicitly specify which filters to use in this call head to restrict filters section.
+By default, it gives access to all filters available. here is the list of [available filters](broken-reference). if you want to explicitly specify
+which filters to use in this call head to restrict filters section.
 
 ## Sort
 
@@ -43,7 +44,7 @@ use Maginium\Framework\Crud\Traits\Sortable;
 class Post extends Model
 {
     use Sortable;
-    
+
     //
 }
 ```

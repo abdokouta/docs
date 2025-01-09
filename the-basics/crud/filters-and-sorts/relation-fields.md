@@ -20,7 +20,8 @@ use Filterable;
 }
 ```
 
-Note that Framework\Crud read available fields from related models, you'll want to edit the `$filterFields` property in the related model. read more about `$filterFields` in [allowed fields](broken-reference) section.
+{% hint style="info" %} Note that Framework\Crud read available fields from related models, you'll want to edit the `$filterFields` property in the
+related model. read more about `$filterFields` in [allowed fields](broken-reference) section. {% endhint %}
 
 ```php
 class Tags extends Model
@@ -39,9 +40,9 @@ Now you're all set to apply relation filtering! You can find some examples on th
 
 Framework\Crud supports sorting by the following relationship types:
 
-* One to One
-* One to Many
-* Many to Many
+- One to One
+- One to Many
+- Many to Many
 
 Just like with filtering, you'll need to define the return type of the relations in your model:
 

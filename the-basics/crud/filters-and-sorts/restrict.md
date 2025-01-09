@@ -4,7 +4,7 @@
 
 purity validates allowed filters in the following order of priority:
 
-* Filters specified in the `filters` configuration in the `configs/purity.php` file.
+- Filters specified in the `filters` configuration in the `configs/purity.php` file.
 
 ```php
 // configs/purity.php
@@ -15,9 +15,9 @@ purity validates allowed filters in the following order of priority:
 
 ```
 
-* Filters declared in the `$filters` variable in the model.
+- Filters declared in the `$filters` variable in the model.
 
-note that $filters will overwrite config filters.
+{% hint style="info" %} Note that $filters will overwrite config filters. {% endhint %}
 
 ```php
 // App\Models\Post
@@ -26,18 +26,18 @@ private array $filters = [
   '$eq',
   '$in',
 ];
-    
+
 // or
-    
+
 private array $filters = [
   EqualFilter::class,
   InFilter::class,
 ];
 ```
 
-* Filters passed as an array to the `filterBy()` function.
+- Filters passed as an array to the `filterBy()` function.
 
-note that, `filterBy` will overwrite all other defined filters.
+{% hint style="info" %} Note that, `filterBy` will overwrite all other defined filters. {% endhint %}
 
 ```php
 Post::filterBy('$eq', '$in')->filter()->get();
@@ -49,7 +49,7 @@ Post::filterBy(EqualFilter::class, InFilter::class)->filter()->get();
 
 There are three available Methods for your convenience. They take priority respectively.
 
-* **Method 1: Define restricted filters inside `$filterFields` property, as shown below**
+- **Method 1: Define restricted filters inside `$filterFields` property, as shown below**
 
 ```php
 $filterFields = [
@@ -62,7 +62,7 @@ $filterFields = [
 
 The drawback here is that you have to define all the allowed fields, regardless of any restriction fields.
 
-* **Method 2: Define them inside `$restrictedFilters` property**
+- **Method 2: Define them inside `$restrictedFilters` property**
 
 ```php
 $restrictedFields = [
@@ -72,15 +72,14 @@ $restrictedFields = [
 ];
 ```
 
-* **Method 3: Finally, you can set it on the Eloquent builder, which takes the highest priority (overwrite all the above options)**
+- **Method 3: Finally, you can set it on the Eloquent builder, which takes the highest priority (overwrite all the above options)**
 
 ```php
 Post::restrictedFilters(['title' => ['$eq']])->filter()->get();
 ```
 
-{% hint style="warning" %}
-All field-restricted filter operations are respected to filters defined in $filter in the model. This means you are not allowed to restrict a field operation not permitted in restricted fields.
-{% endhint %}
+{% hint style="warning" %} All field-restricted filter operations are respected to filters defined in $filter in the model. This means you are not
+allowed to restrict a field operation not permitted in restricted fields. {% endhint %}
 
 ```php
 $filters = ['$eq'];

@@ -2,9 +2,10 @@
 
 ## Magento-Elasticsearch Base Model Integration
 
-This document outlines a structured and technical approach to creating a base model for seamless Elasticsearch integration within a Magento framework. The base model serves as a foundational class, enabling scalable, efficient, and maintainable interactions with Elasticsearch.
+This document outlines a structured and technical approach to creating a base model for seamless Elasticsearch integration within a Magento framework.
+The base model serves as a foundational class, enabling scalable, efficient, and maintainable interactions with Elasticsearch.
 
-***
+---
 
 ### **1. Define the Base Model**
 
@@ -30,7 +31,7 @@ class ElasticsearchBase
 
 This ensures every derived class can inherit core Elasticsearch client functionalities.
 
-***
+---
 
 ### **2. Configurable Index and Type**
 
@@ -41,7 +42,7 @@ protected $indexName = 'magento_index';
 protected $type = 'document_type';
 ```
 
-***
+---
 
 ### **3. CRUD Operations**
 
@@ -76,7 +77,7 @@ public function getDocument($id)
 }
 ```
 
-***
+---
 
 ### **4. Traits for Reusability**
 
@@ -96,7 +97,7 @@ trait ElasticsearchTimestamps
 
 Traits can be used across multiple models to standardize functionality.
 
-***
+---
 
 ### **5. Casts and Mutators**
 
@@ -114,7 +115,7 @@ protected function castData(array $data)
 
 This ensures data consistency during indexing and retrieval.
 
-***
+---
 
 ### **6. Bulk Operations**
 
@@ -141,7 +142,7 @@ public function bulkIndex(array $documents)
 
 Bulk indexing minimizes the overhead of multiple HTTP requests to Elasticsearch.
 
-***
+---
 
 ### **7. Metadata and Debugging**
 
@@ -158,7 +159,7 @@ public function logQueryResponse($response)
 
 This method provides insight into Elasticsearch operations for debugging.
 
-***
+---
 
 ### **8. Extending for Specific Models**
 
@@ -182,8 +183,10 @@ class ProductElasticsearch extends ElasticsearchBase
 
 This approach ensures that Elasticsearch operations are tailored to specific Magento entity requirements.
 
-***
+---
 
 ### **Conclusion**
 
-The Magento-Elasticsearch Base Model establishes a robust and flexible foundation for interacting with Elasticsearch. By centralizing common functionalities and providing extensibility for specific use cases, this architecture supports scalable and maintainable development within the Magento ecosystem. Use this structure as a starting point to customize and enhance Elasticsearch capabilities tailored to your business requirements.
+The Magento-Elasticsearch Base Model establishes a robust and flexible foundation for interacting with Elasticsearch. By centralizing common
+functionalities and providing extensibility for specific use cases, this architecture supports scalable and maintainable development within the
+Magento ecosystem. Use this structure as a starting point to customize and enhance Elasticsearch capabilities tailored to your business requirements.

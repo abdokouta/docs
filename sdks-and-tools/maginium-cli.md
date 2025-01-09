@@ -1,2 +1,1 @@
 # Maginium CLI
-

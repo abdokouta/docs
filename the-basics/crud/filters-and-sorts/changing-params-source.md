@@ -16,7 +16,7 @@ Post::filter($params)->get();
 Post::filter([
             'title' => ['$eq' => 'good post']
         ])->get();
-        
+
 Post::filter([
             '$or' => [
                 'title' => [

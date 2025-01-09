@@ -2,7 +2,8 @@
 
 **Rename Filter Fields**
 
-To rename filter fields, you can add a value to fields defined in `$renamedFilterFields`. This is useful when you want to use a different name for a field in the client-side, while keeping the actual database column name intact.
+To rename filter fields, you can add a value to fields defined in `$renamedFilterFields`. This is useful when you want to use a different name for a
+field in the client-side, while keeping the actual database column name intact.
 
 ```php
 // App\Models\User
@@ -20,7 +21,8 @@ In this case, the client should send `phone` to filter by the mobile column in t
 
 **Rename Sort Fields**
 
-To rename sort fields, you can add a value to the defined key in `$sortFields`. This is similar to renaming filter fields, but applies to sorting operations.
+To rename sort fields, you can add a value to the defined key in `$sortFields`. This is similar to renaming filter fields, but applies to sorting
+operations.
 
 ```php
 // App\Models\User
@@ -51,6 +53,4 @@ Post::sortFields([
   ])->sort()->get();
 ```
 
-{% hint style="info" %}
-Note that `sortFields` and `renamedFilterFields` will overwrite fields defined in the model.
-{% endhint %}
+{% hint style="info" %} Note that `sortFields` and `renamedFilterFields` will overwrite fields defined in the model. {% endhint %}

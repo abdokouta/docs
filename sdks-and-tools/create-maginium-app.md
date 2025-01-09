@@ -1,2 +1,1 @@
 # create-maginium-app
-

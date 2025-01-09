@@ -1,8 +1,8 @@
 # ⚙️ Actions
 
-* [Introduction](actions.md#introduction)
-* [AsObject](actions.md#introduction-1)
-* [As Controller](actions.md#introduction-2)
+- [Introduction](actions.md#introduction)
+- [AsObject](actions.md#introduction-1)
+- [As Controller](actions.md#introduction-2)
 
 ### [Introduction](actions.md#introduction) <a href="#introduction" id="introduction"></a>
 
@@ -10,7 +10,8 @@
 
 This package introduces a new way of organizing the logic of your Maginium applications by focusing on the actions your applications provide.
 
-Instead of creating controllers, jobs, listeners, and so on, it allows you to create a PHP class that handles a specific task and run that class as anything you want.
+Instead of creating controllers, jobs, listeners, and so on, it allows you to create a PHP class that handles a specific task and run that class as
+anything you want.
 
 ### [AsObject](actions.md#introduction-1) <a href="#introduction" id="introduction"></a>
 
@@ -65,7 +66,9 @@ $action($someArguments);
 $action->handle($someArguments);
 ```
 
-Whilst this method is not used, it has to be defined on the action to register the action as an invokable controller. When missing, Maginium will throw an exception warning us that we're trying to register a class as an invokable controller without the `__invoke` method. The truth is, the controller will be an instance of `ControllerDecorator` but the framework doesn't know that yet.
+Whilst this method is not used, it has to be defined on the action to register the action as an invokable controller. When missing, Maginium will
+throw an exception warning us that we're trying to register a class as an invokable controller without the `__invoke` method. The truth is, the
+controller will be an instance of `ControllerDecorator` but the framework doesn't know that yet.
 
 ```
 protected static function makeInvokable($action)
@@ -78,7 +81,8 @@ protected static function makeInvokable($action)
 }
 ```
 
-If you need to use the `__invoke` method for something else, you may [override it (opens a new window)](https://stackoverflow.com/a/11939306/11440277) with anything you want. The only requirement is that a `__invoke` method has to exist.
+If you need to use the `__invoke` method for something else, you may [override it (opens a new window)](https://stackoverflow.com/a/11939306/11440277)
+with anything you want. The only requirement is that a `__invoke` method has to exist.
 
 ```
 class MyAction
@@ -117,7 +121,8 @@ public function asController(User $user, Request $request): Response
 
 #### [#](https://www.laravelactions.com/2.x/as-controller.html#jsonresponse)`jsonResponse` <a href="#jsonresponse" id="jsonresponse"></a>
 
-Called after the `asController` method when the request expects JSON. The first argument is the return value of the `asController` method and the second argument is the request itself.
+Called after the `asController` method when the request expects JSON. The first argument is the return value of the `asController` method and the
+second argument is the request itself.
 
 ```
 public function jsonResponse(Article $article, Request $request): ArticleResource
@@ -128,7 +133,8 @@ public function jsonResponse(Article $article, Request $request): ArticleResourc
 
 #### [#](https://www.laravelactions.com/2.x/as-controller.html#htmlresponse)`htmlResponse` <a href="#htmlresponse" id="htmlresponse"></a>
 
-Called after the `asController` method when the request expects HTML. The first argument is the return value of the `asController` method and the second argument is the request itself.
+Called after the `asController` method when the request expects HTML. The first argument is the return value of the `asController` method and the
+second argument is the request itself.
 
 ```
 public function htmlResponse(Article $article, Request $request): Response

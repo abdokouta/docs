@@ -1,12 +1,15 @@
 # 🔠 Enum
 
-Maginium introduces support for Enums, offering a clean and robust way to manage a predefined set of constants within your application. Enums are particularly useful for handling fixed values, like user roles, order statuses, or other categorical data. By leveraging Enums, you can improve code readability, reduce errors, and standardize the handling of constant data.
+Maginium introduces support for Enums, offering a clean and robust way to manage a predefined set of constants within your application. Enums are
+particularly useful for handling fixed values, like user roles, order statuses, or other categorical data. By leveraging Enums, you can improve code
+readability, reduce errors, and standardize the handling of constant data.
 
-***
+---
 
 ### What are Enums?
 
-Enums (short for Enumerations) are a special type of data structure that allows you to define a set of named constants. In Maginium, Enums are implemented as PHP backed Enums, providing both functionality and type safety.
+Enums (short for Enumerations) are a special type of data structure that allows you to define a set of named constants. In Maginium, Enums are
+implemented as PHP backed Enums, providing both functionality and type safety.
 
 For example, consider an Enum representing the roles in an application:
 
@@ -30,11 +33,12 @@ if ($userRole === UserRole::EDITOR) {
 }
 ```
 
-***
+---
 
 ### Defining Enums in Maginium
 
-To define an Enum in Maginium, use the `enum` keyword followed by the Enum name and type. Enums can be backed by `string` or `int` values to associate constants with scalar data.
+To define an Enum in Maginium, use the `enum` keyword followed by the Enum name and type. Enums can be backed by `string` or `int` values to associate
+constants with scalar data.
 
 \### Example: Order Status Enum
 
@@ -61,7 +65,7 @@ if ($orderStatus === OrderStatus::COMPLETED) {
 
 > **Important**: Enums provide a centralized source of truth for fixed constants, minimizing the risk of typos and logical errors.
 
-***
+---
 
 ### Enum Methods
 
@@ -99,9 +103,9 @@ if ($role->hasPermission('edit')) {
 }
 ```
 
-> **Note**: Adding methods to Enums promotes reusability and keeps related logic encapsulated within the Enum itself.
+{% hint style="info" %} Adding methods to Enums promotes reusability and keeps related logic encapsulated within the Enum itself. {% endhint %}
 
-***
+---
 
 ### Enum Reflection
 
@@ -131,11 +135,12 @@ if ($isValid) {
 
 > **Tip**: Use reflection utilities to dynamically work with Enum cases and values without hardcoding logic.
 
-***
+---
 
 ### Enums in Database
 
-When using Enums in database operations, you can store the Enum values directly. Maginium simplifies this by seamlessly integrating Enums into Eloquent models.
+When using Enums in database operations, you can store the Enum values directly. Maginium simplifies this by seamlessly integrating Enums into
+Eloquent models.
 
 \### Example: Enum in Eloquent Models
 
@@ -155,6 +160,6 @@ class Order extends Model
 
 With this setup, the `status` field in the `Order` model will automatically be cast to and from the `OrderStatus` Enum.
 
-***
+---
 
-***
+---

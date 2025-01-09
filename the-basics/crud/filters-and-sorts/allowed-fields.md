@@ -21,7 +21,7 @@ protected $filterFields = [
   'mobile',
   'posts', // relation
 ];
-    
+
 protected $sortFields = [
   'name',
   'mobile',
@@ -40,6 +40,4 @@ Post::filterFields('title', 'created_at')->filter()->get();
 Post::sortFields('created_at', 'updated_at')->sort()->get();
 ```
 
-{% hint style="info" %}
-filterFields and sortFields will overwrite fields defined in the model.
-{% endhint %}
+{% hint style="info" %} filterFields and sortFields will overwrite fields defined in the model. {% endhint %}

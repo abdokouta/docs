@@ -1,16 +1,18 @@
 # 🔢 Pagination
 
-Pagination is a crucial feature in web applications, enabling you to divide large datasets into smaller, more manageable chunks. Maginium offers a powerful and flexible pagination system that integrates seamlessly with the framework's data querying capabilities.
+Pagination is a crucial feature in web applications, enabling you to divide large datasets into smaller, more manageable chunks. Maginium offers a
+powerful and flexible pagination system that integrates seamlessly with the framework's data querying capabilities.
 
-***
+---
 
 ### Getting Started
 
-Pagination in Maginium is implemented using the built-in paginator. The paginator can be used with database queries, collections, or any iterable dataset to provide efficient navigation across multiple pages.
+Pagination in Maginium is implemented using the built-in paginator. The paginator can be used with database queries, collections, or any iterable
+dataset to provide efficient navigation across multiple pages.
 
 > **Important**: Maginium's paginator is optimised for both performance and user experience, offering intuitive methods for customization.
 
-***
+---
 
 ### Using Pagination with Query Builder
 
@@ -36,7 +38,7 @@ $users->total(); // Total items
 $users->items(); // Data for the current page
 ```
 
-***
+---
 
 ### Pagination Links
 
@@ -46,9 +48,10 @@ The `links` method generates HTML for pagination controls:
 echo $users->links();
 ```
 
-> **Note**: Pagination links are automatically styled using Maginium's default CSS classes. You can override these styles for custom designs.
+{% hint style="info" %} Pagination links are automatically styled using Maginium's default CSS classes. You can override these styles for custom
+designs. {% endhint %}
 
-***
+---
 
 ### Customizing Pagination
 
@@ -67,7 +70,7 @@ $users->setPageName('custom_page');
 $users->appends(['filter' => 'active']);
 ```
 
-***
+---
 
 ### Pagination with Collections
 
@@ -82,7 +85,7 @@ $paginated = $collection->forPage(2, 10);
 // Returns items 11 to 20
 ```
 
-***
+---
 
 ### API Pagination
 
@@ -94,24 +97,24 @@ return $users->toJson();
 
 The response includes:
 
-* **Data**: Current page's dataset
-* **Meta**: Pagination information (e.g., total items, current page, last page)
+- **Data**: Current page's dataset
+- **Meta**: Pagination information (e.g., total items, current page, last page)
 
 #### Example Response
 
 ```json
 {
-    "data": [
-        {"id": 1, "name": "John"},
-        {"id": 2, "name": "Jane"}
-    ],
-    "meta": {
-        "current_page": 1,
-        "last_page": 10,
-        "per_page": 10,
-        "total": 100
-    }
+  "data": [
+    { "id": 1, "name": "John" },
+    { "id": 2, "name": "Jane" }
+  ],
+  "meta": {
+    "current_page": 1,
+    "last_page": 10,
+    "per_page": 10,
+    "total": 100
+  }
 }
 ```
 
-***
+---
