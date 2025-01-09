@@ -1,10 +1,12 @@
 # Available Methods
 
-### Queries and javascript examples
+## Available Methods
+
+#### Queries and javascript examples
 
 This section is a guide for front-end developers who want to use an API that uses Maginium Purity.
 
-#### Available Filters
+**Available Filters**
 
 Queries can accept a filter parameter with the following syntax:
 
