@@ -56,6 +56,21 @@
 * [🕘 Message Queue](the-basics/message-queue.md)
 * [🖼️ Media](the-basics/media.md)
 * [Helpers](the-basics/helpers.md)
+* [📜 Crud](the-basics/crud/README.md)
+  * [introduction](the-basics/crud/introduction.md)
+  * [Basic Usage](the-basics/crud/basic-usage.md)
+  * [rename](the-basics/crud/rename.md)
+  * [Relation Fields](the-basics/crud/relation-fields.md)
+  * [Changing Params Source](the-basics/crud/changing-params-source.md)
+  * [Allowed Fields](the-basics/crud/allowed-fields.md)
+  * [Upgrade Guide](the-basics/crud/upgrade-guide.md)
+  * [Queries and javascript examples](the-basics/crud/queries-and-javascript-examples.md)
+  * [.\_available methods](the-basics/crud/._available-methods.md)
+  * [filter](the-basics/crud/filter.md)
+  * [Apply Sort](the-basics/crud/apply-sort.md)
+  * [Sort null values last](the-basics/crud/sort-null-values-last.md)
+  * [restrict](the-basics/crud/restrict.md)
+  * [Custom Filters](the-basics/crud/custom-filters.md)
 
 ## Commerce Modules
 
