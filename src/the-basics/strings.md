@@ -1,19 +1,20 @@
 # 🔤 Strings
 
-* [Introduction](strings.md#introduction)
-* [Available Methods](strings.md#available-methods)
+- [Introduction](strings.md#introduction)
+- [Available Methods](strings.md#available-methods)
 
 ### [Introduction](strings.md#introduction) <a href="#introduction" id="introduction"></a>
 
-Laravel includes a variety of functions for manipulating string values. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
+Laravel includes a variety of functions for manipulating string values. Many of these functions are used by the framework itself; however, you are
+free to use them in your own applications if you find them convenient.
 
 ### [Available Methods](strings.md#available-methods) <a href="#available-methods" id="available-methods"></a>
 
 #### [Strings](strings.md#strings-method-list) <a href="#strings-method-list" id="strings-method-list"></a>
 
-| [\_\_](strings.md#method-__)                                 | [class\_basename](strings.md#method-class-basename)    | [e](strings.md#method-e)                                     |
+| [\_\_](strings.md#method-__)                                 | [class_basename](strings.md#method-class-basename)     | [e](strings.md#method-e)                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
-| [preg\_replace\_array](strings.md#method-preg-replace-array) | [Str::after](strings.md#method-str-after)              | [Str::afterLast](strings.md#method-str-after-last)           |
+| [preg_replace_array](strings.md#method-preg-replace-array)   | [Str::after](strings.md#method-str-after)              | [Str::afterLast](strings.md#method-str-after-last)           |
 | [Str::apa](strings.md#method-str-apa)                        | [Str::ascii](strings.md#method-str-ascii)              | [Str::before](strings.md#method-str-before)                  |
 | [Str::beforeLast](strings.md#method-str-before-last)         | [Str::between](strings.md#method-str-between)          | [Str::betweenFirst](strings.md#method-str-between-first)     |
 | [Str::camel](strings.md#method-camel-case)                   | [Str::charAt](strings.md#method-char-at)               | [Str::chopStart](strings.md#method-str-chop-start)           |
@@ -41,7 +42,7 @@ Laravel includes a variety of functions for manipulating string values. Many of 
 | [Str::ulid](strings.md#method-str-ulid)                      | [Str::unwrap](strings.md#method-str-unwrap)            | [Str::uuid](strings.md#method-str-uuid)                      |
 | [Str::wordCount](strings.md#method-str-word-count)           | [Str::wordWrap](strings.md#method-str-word-wrap)       | [Str::words](strings.md#method-str-words)                    |
 | [Str::wrap](strings.md#method-str-wrap)                      | [str](strings.md#method-str)                           | [trans](strings.md#method-trans)                             |
-| [trans\_choice](strings.md#method-trans-choice)              |                                                        |                                                              |
+| [trans_choice](strings.md#method-trans-choice)               |                                                        |                                                              |
 
 #### [Fluent Strings](strings.md#fluent-strings-method-list) <a href="#fluent-strings-method-list" id="fluent-strings-method-list"></a>
 
@@ -93,7 +94,8 @@ echo __('Welcome to our application');
 echo __('messages.welcome');
 ```
 
-If the specified translation string or key does not exist, the `__` function will return the given value. So, using the example above, the `__` function would return `messages.welcome` if that translation key does not exist.
+If the specified translation string or key does not exist, the `__` function will return the given value. So, using the example above, the `__`
+function would return `messages.welcome` if that translation key does not exist.
 
 [**`class_basename()`**](strings.md#method-class-basename)
 
@@ -125,7 +127,8 @@ $replaced = preg_replace_array('/:[a-z_]+/', ['8:30', '9:00'], $string);
 
 [**`Str::after()`**](strings.md#method-str-after)
 
-The `Str::after` method returns everything after the given value in a string. The entire string will be returned if the value does not exist within the string:
+The `Str::after` method returns everything after the given value in a string. The entire string will be returned if the value does not exist within
+the string:
 
 ```php
 use Illuminate\Support\Str;
@@ -135,7 +138,8 @@ $slice = Str::after('This is my name', 'This is');
 
 [**`Str::afterLast()`**](strings.md#method-str-after-last)
 
-The `Str::afterLast` method returns everything after the last occurrence of the given value in a string. The entire string will be returned if the value does not exist within the string:
+The `Str::afterLast` method returns everything after the last occurrence of the given value in a string. The entire string will be returned if the
+value does not exist within the string:
 
 ```php
 use Illuminate\Support\Str;
@@ -145,7 +149,8 @@ $slice = Str::afterLast('App\Http\Controllers\Controller', '\\');
 
 [**`Str::apa()`**](strings.md#method-str-apa)
 
-The `Str::apa` method converts the given string to title case following the [APA guidelines](https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case):
+The `Str::apa` method converts the given string to title case following the
+[APA guidelines](https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case):
 
 ```php
 use Illuminate\Support\Str;
@@ -233,7 +238,8 @@ $url = Str::chopStart('https://laravel.com', 'https://');
 // 'laravel.com'
 ```
 
-You may also pass an array as the second argument. If the string starts with any of the values in the array then that value will be removed from string:
+You may also pass an array as the second argument. If the string starts with any of the values in the array then that value will be removed from
+string:
 
 ```php
 use Illuminate\Support\Str;
@@ -331,7 +337,8 @@ $doesntContain = Str::doesntContain('This is name', 'MY', ignoreCase: true);
 
 [**`Str::deduplicate()`**](strings.md#method-deduplicate)
 
-The `Str::deduplicate` method replaces consecutive instances of a character with a single instance of that character in the given string. By default, the method deduplicates spaces:
+The `Str::deduplicate` method replaces consecutive instances of a character with a single instance of that character in the given string. By default,
+the method deduplicates spaces:
 
 ```php
 use Illuminate\Support\Str;
@@ -401,7 +408,8 @@ $adjusted = Str::finish('this/string/', '/');
 
 [**`Str::headline()`**](strings.md#method-str-headline)
 
-The `Str::headline` method will convert strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first letter capitalized:
+The `Str::headline` method will convert strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first
+letter capitalized:
 
 ```php
 use Illuminate\Support\Str;
@@ -413,7 +421,8 @@ $headline = Str::headline('EmailNotificationSent');
 
 [**`Str::inlineMarkdown()`**](strings.md#method-str-inline-markdown)
 
-The `Str::inlineMarkdown` method converts GitHub flavored Markdown into inline HTML using [CommonMark](https://commonmark.thephpleague.com/). However, unlike the `markdown` method, it does not wrap all generated HTML in a block-level element:
+The `Str::inlineMarkdown` method converts GitHub flavored Markdown into inline HTML using [CommonMark](https://commonmark.thephpleague.com/). However,
+unlike the `markdown` method, it does not wrap all generated HTML in a block-level element:
 
 ```php
 use Illuminate\Support\Str;
@@ -423,7 +432,10 @@ $html = Str::inlineMarkdown('**Laravel**');
 
 **Markdown Security**
 
-By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the [CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled Markdown through an HTML Purifier:
+By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the
+[CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw
+HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled
+Markdown through an HTML Purifier:
 
 ```php
 use Illuminate\Support\Str;
@@ -489,7 +501,8 @@ $isUrl = Str::isUrl('laravel');
 // false
 ```
 
-The `isUrl` method considers a wide range of protocols as valid. However, you may specify the protocols that should be considered valid by providing them to the `isUrl` method:
+The `isUrl` method considers a wide range of protocols as valid. However, you may specify the protocols that should be considered valid by providing
+them to the `isUrl` method:
 
 ```php
 $isUrl = Str::isUrl('http://example.com', ['http', 'https']);
@@ -566,7 +579,8 @@ $truncated = Str::limit('The quick brown fox jumps over the lazy dog', 20, ' (..
 // The quick brown fox (...)
 ```
 
-If you would like to preserve complete words when truncating the string, you may utilize the `preserveWords` argument. When this argument is `true`, the string will be truncated to the nearest complete word boundary:
+If you would like to preserve complete words when truncating the string, you may utilize the `preserveWords` argument. When this argument is `true`,
+the string will be truncated to the nearest complete word boundary:
 
 ```php
 $truncated = Str::limit('The quick brown fox', 12, preserveWords: true);
@@ -597,7 +611,10 @@ $html = Str::markdown('# Taylor <b>Otwell</b>', [    'html_input' => 'strip',]);
 
 **Markdown Security**
 
-By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the [CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled Markdown through an HTML Purifier:
+By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the
+[CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw
+HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled
+Markdown through an HTML Purifier:
 
 ```php
 use Illuminate\Support\Str;
@@ -607,7 +624,8 @@ Str::markdown('Inject: <script>alert("Hello XSS!");</script>', [    'html_input'
 
 [**`Str::mask()`**](strings.md#method-str-mask)
 
-The `Str::mask` method masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings such as email addresses and phone numbers:
+The `Str::mask` method masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings such as email addresses
+and phone numbers:
 
 ```php
 use Illuminate\Support\Str;
@@ -615,7 +633,8 @@ $string = Str::mask('taylor@example.com', '*', 3);
 // tay***************
 ```
 
-If needed, you provide a negative number as the third argument to the `mask` method, which will instruct the method to begin masking at the given distance from the end of the string:
+If needed, you provide a negative number as the third argument to the `mask` method, which will instruct the method to begin masking at the given
+distance from the end of the string:
 
 ```php
 $string = Str::mask('taylor@example.com', '*', -15, 3);
@@ -624,7 +643,8 @@ $string = Str::mask('taylor@example.com', '*', -15, 3);
 
 [**`Str::orderedUuid()`**](strings.md#method-str-ordered-uuid)
 
-The `Str::orderedUuid` method generates a "timestamp first" UUID that may be efficiently stored in an indexed database column. Each UUID that is generated using this method will be sorted after UUIDs previously generated using the method:
+The `Str::orderedUuid` method generates a "timestamp first" UUID that may be efficiently stored in an indexed database column. Each UUID that is
+generated using this method will be sorted after UUIDs previously generated using the method:
 
 ```php
 use Illuminate\Support\Str;
@@ -633,7 +653,8 @@ return (string) Str::orderedUuid();
 
 [**`Str::padBoth()`**](strings.md#method-str-padboth)
 
-The `Str::padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches a desired length:
+The `Str::padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches a desired
+length:
 
 ```php
 use Illuminate\Support\Str;
@@ -645,7 +666,8 @@ $padded = Str::padBoth('James', 10);
 
 [**`Str::padLeft()`**](strings.md#method-str-padleft)
 
-The `Str::padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches a desired length:
+The `Str::padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches a
+desired length:
 
 ```php
 use Illuminate\Support\Str;
@@ -657,7 +679,8 @@ $padded = Str::padLeft('James', 10);
 
 [**`Str::padRight()`**](strings.md#method-str-padright)
 
-The `Str::padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches a desired length:
+The `Str::padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches a
+desired length:
 
 ```php
 use Illuminate\Support\Str;
@@ -669,7 +692,8 @@ $padded = Str::padRight('James', 10);
 
 [**`Str::password()`**](strings.md#method-str-password)
 
-The `Str::password` method may be used to generate a secure, random password of a given length. The password will consist of a combination of letters, numbers, symbols, and spaces. By default, passwords are 32 characters long:
+The `Str::password` method may be used to generate a secure, random password of a given length. The password will consist of a combination of letters,
+numbers, symbols, and spaces. By default, passwords are 32 characters long:
 
 ```php
 use Illuminate\Support\Str;
@@ -681,7 +705,8 @@ $password = Str::password(12);
 
 [**`Str::plural()`**](strings.md#method-str-plural)
 
-The `Str::plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
+The `Str::plural` method converts a singular word string to its plural form. This function supports
+[any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
 
 ```php
 use Illuminate\Support\Str;
@@ -703,7 +728,8 @@ $singular = Str::plural('child', 1);
 
 [**`Str::pluralStudly()`**](strings.md#method-str-plural-studly)
 
-The `Str::pluralStudly` method converts a singular word string formatted in studly caps case to its plural form. This function supports [any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
+The `Str::pluralStudly` method converts a singular word string formatted in studly caps case to its plural form. This function supports
+[any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
 
 ```php
 use Illuminate\Support\Str;
@@ -725,7 +751,8 @@ $singular = Str::pluralStudly('VerifiedHuman', 1);
 
 [**`Str::position()`**](strings.md#method-str-position)
 
-The `Str::position` method returns the position of the first occurrence of a substring in a string. If the substring does not exist in the given string, `false` is returned:
+The `Str::position` method returns the position of the first occurrence of a substring in a string. If the substring does not exist in the given
+string, `false` is returned:
 
 ```php
 use Illuminate\Support\Str;
@@ -744,7 +771,8 @@ use Illuminate\Support\Str;
 $random = Str::random(40);
 ```
 
-During testing, it may be useful to "fake" the value that is returned by the `Str::random` method. To accomplish this, you may use the `createRandomStringsUsing` method:
+During testing, it may be useful to "fake" the value that is returned by the `Str::random` method. To accomplish this, you may use the
+`createRandomStringsUsing` method:
 
 ```php
 Str::createRandomStringsUsing(function () {    return 'fake-random-string';});
@@ -838,7 +866,8 @@ $replaced = Str::replaceMatches(    pattern: '/[^A-Za-z0-9]++/',    replace: '',
 // '15015551000'
 ```
 
-The `replaceMatches` method also accepts a closure that will be invoked with each portion of the string matching the given pattern, allowing you to perform the replacement logic within the closure and return the replaced value:
+The `replaceMatches` method also accepts a closure that will be invoked with each portion of the string matching the given pattern, allowing you to
+perform the replacement logic within the closure and return the replaced value:
 
 ```php
 use Illuminate\Support\Str;
@@ -882,7 +911,8 @@ $reversed = Str::reverse('Hello World');
 
 [**`Str::singular()`**](strings.md#method-str-singular)
 
-The `Str::singular` method converts a string to its singular form. This function supports [any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
+The `Str::singular` method converts a string to its singular form. This function supports
+[any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
 
 ```php
 use Illuminate\Support\Str;
@@ -985,7 +1015,9 @@ $count = Str::substrCount('If you like ice cream, you will like snow cones.', 'l
 
 [**`Str::substrReplace()`**](strings.md#method-str-substrreplace)
 
-The `Str::substrReplace` method replaces text within a portion of a string, starting at the position specified by the third argument and replacing the number of characters specified by the fourth argument. Passing `0` to the method's fourth argument will insert the string at the specified position without replacing any of the existing characters in the string:
+The `Str::substrReplace` method replaces text within a portion of a string, starting at the position specified by the third argument and replacing the
+number of characters specified by the fourth argument. Passing `0` to the method's fourth argument will insert the string at the specified position
+without replacing any of the existing characters in the string:
 
 ```php
 use Illuminate\Support\Str;
@@ -1045,7 +1077,8 @@ $email = Str::transliterate('ⓣⓔⓢⓣ@ⓛⓐⓡⓐⓥⓔⓛ.ⓒⓞⓜ');
 
 [**`Str::trim()`**](strings.md#method-str-trim)
 
-The `Str::trim` method strips whitespace (or other characters) from the beginning and end of the given string. Unlike PHP's native `trim` function, the `Str::trim` method also removes unicode whitespace characters:
+The `Str::trim` method strips whitespace (or other characters) from the beginning and end of the given string. Unlike PHP's native `trim` function,
+the `Str::trim` method also removes unicode whitespace characters:
 
 ```php
 use Illuminate\Support\Str;
@@ -1055,7 +1088,8 @@ $string = Str::trim(' foo bar ');
 
 [**`Str::ltrim()`**](strings.md#method-str-ltrim)
 
-The `Str::ltrim` method strips whitespace (or other characters) from the beginning of the given string. Unlike PHP's native `ltrim` function, the `Str::ltrim` method also removes unicode whitespace characters:
+The `Str::ltrim` method strips whitespace (or other characters) from the beginning of the given string. Unlike PHP's native `ltrim` function, the
+`Str::ltrim` method also removes unicode whitespace characters:
 
 ```php
 use Illuminate\Support\Str;
@@ -1065,7 +1099,8 @@ $string = Str::ltrim('  foo bar  ');
 
 [**`Str::rtrim()`**](strings.md#method-str-rtrim)
 
-The `Str::rtrim` method strips whitespace (or other characters) from the end of the given string. Unlike PHP's native `rtrim` function, the `Str::rtrim` method also removes unicode whitespace characters:
+The `Str::rtrim` method strips whitespace (or other characters) from the end of the given string. Unlike PHP's native `rtrim` function, the
+`Str::rtrim` method also removes unicode whitespace characters:
 
 ```php
 use Illuminate\Support\Str;
@@ -1113,14 +1148,16 @@ return (string) Str::ulid();
 // 01gd6r360bp37zj17nxb55yv40
 ```
 
-If you would like to retrieve a `Illuminate\Support\Carbon` date instance representing the date and time that a given ULID was created, you may use the `createFromId` method provided by Laravel's Carbon integration:
+If you would like to retrieve a `Illuminate\Support\Carbon` date instance representing the date and time that a given ULID was created, you may use
+the `createFromId` method provided by Laravel's Carbon integration:
 
 ```php
 use Illuminate\Support\Carbon;use Illuminate\Support\Str;
 $date = Carbon::createFromId((string) Str::ulid());
 ```
 
-During testing, it may be useful to "fake" the value that is returned by the `Str::ulid` method. To accomplish this, you may use the `createUlidsUsing` method:
+During testing, it may be useful to "fake" the value that is returned by the `Str::ulid` method. To accomplish this, you may use the
+`createUlidsUsing` method:
 
 ```php
 use Symfony\Component\Uid\Ulid;
@@ -1154,7 +1191,8 @@ use Illuminate\Support\Str;
 return (string) Str::uuid();
 ```
 
-During testing, it may be useful to "fake" the value that is returned by the `Str::uuid` method. To accomplish this, you may use the `createUuidsUsing` method:
+During testing, it may be useful to "fake" the value that is returned by the `Str::uuid` method. To accomplish this, you may use the
+`createUuidsUsing` method:
 
 ```php
 use Ramsey\Uuid\Uuid;
@@ -1189,7 +1227,8 @@ Str::wordWrap($text, characters: 20, break: "<br />\n");
 
 [**`Str::words()`**](strings.md#method-str-words)
 
-The `Str::words` method limits the number of words in a string. An additional string may be passed to this method via its third argument to specify which string should be appended to the end of the truncated string:
+The `Str::words` method limits the number of words in a string. An additional string may be passed to this method via its third argument to specify
+which string should be appended to the end of the truncated string:
 
 ```php
 use Illuminate\Support\Str;
@@ -1233,7 +1272,8 @@ The `trans` function translates the given translation key using your [language f
 echo trans('messages.welcome');
 ```
 
-If the specified translation key does not exist, the `trans` function will return the given key. So, using the example above, the `trans` function would return `messages.welcome` if the translation key does not exist.
+If the specified translation key does not exist, the `trans` function will return the given key. So, using the example above, the `trans` function
+would return `messages.welcome` if the translation key does not exist.
 
 [**`trans_choice()`**](strings.md#method-trans-choice)
 
@@ -1243,15 +1283,18 @@ The `trans_choice` function translates the given translation key with inflection
 echo trans_choice('messages.notifications', $unreadCount);
 ```
 
-If the specified translation key does not exist, the `trans_choice` function will return the given key. So, using the example above, the `trans_choice` function would return `messages.notifications` if the translation key does not exist.
+If the specified translation key does not exist, the `trans_choice` function will return the given key. So, using the example above, the
+`trans_choice` function would return `messages.notifications` if the translation key does not exist.
 
 ### [Fluent Strings](strings.md#fluent-strings) <a href="#fluent-strings" id="fluent-strings"></a>
 
-Fluent strings provide a more fluent, object-oriented interface for working with string values, allowing you to chain multiple string operations together using a more readable syntax compared to traditional string operations.
+Fluent strings provide a more fluent, object-oriented interface for working with string values, allowing you to chain multiple string operations
+together using a more readable syntax compared to traditional string operations.
 
 [**`after`**](strings.md#method-fluent-str-after)
 
-The `after` method returns everything after the given value in a string. The entire string will be returned if the value does not exist within the string:
+The `after` method returns everything after the given value in a string. The entire string will be returned if the value does not exist within the
+string:
 
 ```php
 use Illuminate\Support\Str;
@@ -1261,7 +1304,8 @@ $slice = Str::of('This is my name')->after('This is');
 
 [**`afterLast`**](strings.md#method-fluent-str-after-last)
 
-The `afterLast` method returns everything after the last occurrence of the given value in a string. The entire string will be returned if the value does not exist within the string:
+The `afterLast` method returns everything after the last occurrence of the given value in a string. The entire string will be returned if the value
+does not exist within the string:
 
 ```php
 use Illuminate\Support\Str;
@@ -1271,7 +1315,8 @@ $slice = Str::of('App\Http\Controllers\Controller')->afterLast('\\');
 
 [**`apa`**](strings.md#method-fluent-str-apa)
 
-The `apa` method converts the given string to title case following the [APA guidelines](https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case):
+The `apa` method converts the given string to title case following the
+[APA guidelines](https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case):
 
 ```php
 use Illuminate\Support\Str;
@@ -1469,7 +1514,8 @@ $containsAll = Str::of('This is my name')->containsAll(['MY', 'NAME'], ignoreCas
 
 [**`deduplicate`**](strings.md#method-fluent-str-deduplicate)
 
-The `deduplicate` method replaces consecutive instances of a character with a single instance of that character in the given string. By default, the method deduplicates spaces:
+The `deduplicate` method replaces consecutive instances of a character with a single instance of that character in the given string. By default, the
+method deduplicates spaces:
 
 ```php
 use Illuminate\Support\Str;
@@ -1577,7 +1623,8 @@ $adjusted = Str::of('this/string/')->finish('/');
 
 [**`headline`**](strings.md#method-fluent-str-headline)
 
-The `headline` method will convert strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first letter capitalized:
+The `headline` method will convert strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first letter
+capitalized:
 
 ```php
 use Illuminate\Support\Str;
@@ -1589,7 +1636,8 @@ $headline = Str::of('EmailNotificationSent')->headline();
 
 [**`inlineMarkdown`**](strings.md#method-fluent-str-inline-markdown)
 
-The `inlineMarkdown` method converts GitHub flavored Markdown into inline HTML using [CommonMark](https://commonmark.thephpleague.com/). However, unlike the `markdown` method, it does not wrap all generated HTML in a block-level element:
+The `inlineMarkdown` method converts GitHub flavored Markdown into inline HTML using [CommonMark](https://commonmark.thephpleague.com/). However,
+unlike the `markdown` method, it does not wrap all generated HTML in a block-level element:
 
 ```php
 use Illuminate\Support\Str;
@@ -1599,7 +1647,10 @@ $html = Str::of('**Laravel**')->inlineMarkdown();
 
 **Markdown Security**
 
-By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the [CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled Markdown through an HTML Purifier:
+By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the
+[CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw
+HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled
+Markdown through an HTML Purifier:
 
 ```php
 use Illuminate\Support\Str;
@@ -1693,7 +1744,8 @@ $result = Str::of('Taylor')->isUrl();
 // false
 ```
 
-The `isUrl` method considers a wide range of protocols as valid. However, you may specify the protocols that should be considered valid by providing them to the `isUrl` method:
+The `isUrl` method considers a wide range of protocols as valid. However, you may specify the protocols that should be considered valid by providing
+them to the `isUrl` method:
 
 ```php
 $result = Str::of('http://example.com')->isUrl(['http', 'https']);
@@ -1758,7 +1810,8 @@ $truncated = Str::of('The quick brown fox jumps over the lazy dog')->limit(20, '
 // The quick brown fox (...)
 ```
 
-If you would like to preserve complete words when truncating the string, you may utilize the `preserveWords` argument. When this argument is `true`, the string will be truncated to the nearest complete word boundary:
+If you would like to preserve complete words when truncating the string, you may utilize the `preserveWords` argument. When this argument is `true`,
+the string will be truncated to the nearest complete word boundary:
 
 ```php
 $truncated = Str::of('The quick brown fox')->limit(12, preserveWords: true);
@@ -1789,7 +1842,10 @@ $html = Str::of('# Taylor <b>Otwell</b>')->markdown([    'html_input' => 'strip'
 
 **Markdown Security**
 
-By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the [CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled Markdown through an HTML Purifier:
+By default, Markdown supports raw HTML, which will expose Cross-Site Scripting (XSS) vulnerabilities when used with raw user input. As per the
+[CommonMark Security documentation](https://commonmark.thephpleague.com/security/), you may use the `html_input` option to either escape or strip raw
+HTML, and the `allow_unsafe_links` option to specify whether to allow unsafe links. If you need to allow some raw HTML, you should pass your compiled
+Markdown through an HTML Purifier:
 
 ```php
 use Illuminate\Support\Str;
@@ -1799,7 +1855,8 @@ Str::of('Inject: <script>alert("Hello XSS!");</script>')->markdown([    'html_in
 
 [**`mask`**](strings.md#method-fluent-str-mask)
 
-The `mask` method masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings such as email addresses and phone numbers:
+The `mask` method masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings such as email addresses and
+phone numbers:
 
 ```php
 use Illuminate\Support\Str;
@@ -1807,7 +1864,8 @@ $string = Str::of('taylor@example.com')->mask('*', 3);
 // tay***************
 ```
 
-If needed, you may provide negative numbers as the third or fourth argument to the `mask` method, which will instruct the method to begin masking at the given distance from the end of the string:
+If needed, you may provide negative numbers as the third or fourth argument to the `mask` method, which will instruct the method to begin masking at
+the given distance from the end of the string:
 
 ```php
 $string = Str::of('taylor@example.com')->mask('*', -15, 3);
@@ -1872,7 +1930,8 @@ $padded = Str::of('Laravel')->newLine()->append('Framework');
 
 [**`padBoth`**](strings.md#method-fluent-str-padboth)
 
-The `padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches the desired length:
+The `padBoth` method wraps PHP's `str_pad` function, padding both sides of a string with another string until the final string reaches the desired
+length:
 
 ```php
 use Illuminate\Support\Str;
@@ -1884,7 +1943,8 @@ $padded = Str::of('James')->padBoth(10);
 
 [**`padLeft`**](strings.md#method-fluent-str-padleft)
 
-The `padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches the desired length:
+The `padLeft` method wraps PHP's `str_pad` function, padding the left side of a string with another string until the final string reaches the desired
+length:
 
 ```php
 use Illuminate\Support\Str;
@@ -1896,7 +1956,8 @@ $padded = Str::of('James')->padLeft(10);
 
 [**`padRight`**](strings.md#method-fluent-str-padright)
 
-The `padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches the desired length:
+The `padRight` method wraps PHP's `str_pad` function, padding the right side of a string with another string until the final string reaches the
+desired length:
 
 ```php
 use Illuminate\Support\Str;
@@ -1920,7 +1981,8 @@ $closure = Str::of('foo')->pipe(function (Stringable $str) {    return 'bar';});
 
 [**`plural`**](strings.md#method-fluent-str-plural)
 
-The `plural` method converts a singular word string to its plural form. This function supports [any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
+The `plural` method converts a singular word string to its plural form. This function supports
+[any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
 
 ```php
 use Illuminate\Support\Str;
@@ -1942,7 +2004,8 @@ $plural = Str::of('child')->plural(1);
 
 [**`position`**](strings.md#method-fluent-str-position)
 
-The `position` method returns the position of the first occurrence of a substring in a string. If the substring does not exist within the string, `false` is returned:
+The `position` method returns the position of the first occurrence of a substring in a string. If the substring does not exist within the string,
+`false` is returned:
 
 ```php
 use Illuminate\Support\Str;
@@ -2041,7 +2104,8 @@ $replaced = Str::of('(+1) 501-555-1000')->replaceMatches('/[^A-Za-z0-9]++/', '')
 // '15015551000'
 ```
 
-The `replaceMatches` method also accepts a closure that will be invoked with each portion of the string matching the given pattern, allowing you to perform the replacement logic within the closure and return the replaced value:
+The `replaceMatches` method also accepts a closure that will be invoked with each portion of the string matching the given pattern, allowing you to
+perform the replacement logic within the closure and return the replaced value:
 
 ```php
 use Illuminate\Support\Str;
@@ -2075,7 +2139,8 @@ $replaced = Str::of('Hello World')->replaceEnd('Hello', 'Laravel');
 
 [**`scan`**](strings.md#method-fluent-str-scan)
 
-The `scan` method parses input from a string into a collection according to a format supported by the [`sscanf` PHP function](https://www.php.net/manual/en/function.sscanf.php):
+The `scan` method parses input from a string into a collection according to a format supported by the
+[`sscanf` PHP function](https://www.php.net/manual/en/function.sscanf.php):
 
 ```php
 use Illuminate\Support\Str;
@@ -2085,7 +2150,8 @@ $collection = Str::of('filename.jpg')->scan('%[^.].%s');
 
 [**`singular`**](strings.md#method-fluent-str-singular)
 
-The `singular` method converts a string to its singular form. This function supports [any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
+The `singular` method converts a string to its singular form. This function supports
+[any of the languages support by Laravel's pluralizer](../../foundation/strings.md/localization/#pluralization-language):
 
 ```php
 use Illuminate\Support\Str;
@@ -2193,7 +2259,9 @@ $string = Str::of('Laravel Framework')->substr(8, 5);
 
 [**`substrReplace`**](strings.md#method-fluent-str-substrreplace)
 
-The `substrReplace` method replaces text within a portion of a string, starting at the position specified by the second argument and replacing the number of characters specified by the third argument. Passing `0` to the method's third argument will insert the string at the specified position without replacing any of the existing characters in the string:
+The `substrReplace` method replaces text within a portion of a string, starting at the position specified by the second argument and replacing the
+number of characters specified by the third argument. Passing `0` to the method's third argument will insert the string at the specified position
+without replacing any of the existing characters in the string:
 
 ```php
 use Illuminate\Support\Str;
@@ -2225,7 +2293,8 @@ $taken = Str::of('Build something amazing!')->take(5);
 
 [**`tap`**](strings.md#method-fluent-str-tap)
 
-The `tap` method passes the string to the given closure, allowing you to examine and interact with the string while not affecting the string itself. The original string is returned by the `tap` method regardless of what is returned by the closure:
+The `tap` method passes the string to the given closure, allowing you to examine and interact with the string while not affecting the string itself.
+The original string is returned by the `tap` method regardless of what is returned by the closure:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2265,7 +2334,8 @@ $base64 = Str::of('Laravel')->toBase64();
 
 [**`toHtmlString`**](strings.md#method-fluent-str-to-html-string)
 
-The `toHtmlString` method converts the given string to an instance of `Illuminate\Support\HtmlString`, which will not be escaped when rendered in Blade templates:
+The `toHtmlString` method converts the given string to an instance of `Illuminate\Support\HtmlString`, which will not be escaped when rendered in
+Blade templates:
 
 ```php
 use Illuminate\Support\Str;
@@ -2296,7 +2366,8 @@ $string = Str::of('/Laravel/')->trim('/');
 
 [**`ltrim`**](strings.md#method-fluent-str-ltrim)
 
-The `ltrim` method trims the left side of the string. Unlike PHP's native `ltrim` function, Laravel's `ltrim` method also removes unicode whitespace characters:
+The `ltrim` method trims the left side of the string. Unlike PHP's native `ltrim` function, Laravel's `ltrim` method also removes unicode whitespace
+characters:
 
 ```php
 use Illuminate\Support\Str;
@@ -2308,7 +2379,8 @@ $string = Str::of('/Laravel/')->ltrim('/');
 
 [**`rtrim`**](strings.md#method-fluent-str-rtrim)
 
-The `rtrim` method trims the right side of the given string. Unlike PHP's native `rtrim` function, Laravel's `rtrim` method also removes unicode whitespace characters:
+The `rtrim` method trims the right side of the given string. Unlike PHP's native `rtrim` function, Laravel's `rtrim` method also removes unicode
+whitespace characters:
 
 ```php
 use Illuminate\Support\Str;
@@ -2372,7 +2444,8 @@ return $string->append(' Otwell');
 // 'Taylor Otwell'
 ```
 
-If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the condition parameter evaluates to `false`.
+If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the condition parameter evaluates
+to `false`.
 
 [**`whenContains`**](strings.md#method-fluent-str-when-contains)
 
@@ -2384,7 +2457,8 @@ $string = Str::of('tony stark')            ->whenContains('tony', function (Stri
 // 'Tony Stark'
 ```
 
-If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the string does not contain the given value.
+If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the string does not contain the
+given value.
 
 You may also pass an array of values to determine if the given string contains any of the values in the array:
 
@@ -2396,7 +2470,8 @@ $string = Str::of('tony stark')            ->whenContains(['tony', 'hulk'], func
 
 [**`whenContainsAll`**](strings.md#method-fluent-str-when-contains-all)
 
-The `whenContainsAll` method invokes the given closure if the string contains all of the given sub-strings. The closure will receive the fluent string instance:
+The `whenContainsAll` method invokes the given closure if the string contains all of the given sub-strings. The closure will receive the fluent string
+instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2405,11 +2480,13 @@ return $string->title();                });
 // 'Tony Stark'
 ```
 
-If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the condition parameter evaluates to `false`.
+If necessary, you may pass another closure as the third parameter to the `when` method. This closure will execute if the condition parameter evaluates
+to `false`.
 
 [**`whenEmpty`**](strings.md#method-fluent-str-when-empty)
 
-The `whenEmpty` method invokes the given closure if the string is empty. If the closure returns a value, that value will also be returned by the `whenEmpty` method. If the closure does not return a value, the fluent string instance will be returned:
+The `whenEmpty` method invokes the given closure if the string is empty. If the closure returns a value, that value will also be returned by the
+`whenEmpty` method. If the closure does not return a value, the fluent string instance will be returned:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2419,7 +2496,8 @@ $string = Str::of('  ')->whenEmpty(function (Stringable $string) {    return $st
 
 [**`whenNotEmpty`**](strings.md#method-fluent-str-when-not-empty)
 
-The `whenNotEmpty` method invokes the given closure if the string is not empty. If the closure returns a value, that value will also be returned by the `whenNotEmpty` method. If the closure does not return a value, the fluent string instance will be returned:
+The `whenNotEmpty` method invokes the given closure if the string is not empty. If the closure returns a value, that value will also be returned by
+the `whenNotEmpty` method. If the closure does not return a value, the fluent string instance will be returned:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2429,7 +2507,8 @@ $string = Str::of('Framework')->whenNotEmpty(function (Stringable $string) {    
 
 [**`whenStartsWith`**](strings.md#method-fluent-str-when-starts-with)
 
-The `whenStartsWith` method invokes the given closure if the string starts with the given sub-string. The closure will receive the fluent string instance:
+The `whenStartsWith` method invokes the given closure if the string starts with the given sub-string. The closure will receive the fluent string
+instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2449,7 +2528,8 @@ $string = Str::of('disney world')->whenEndsWith('world', function (Stringable $s
 
 [**`whenExactly`**](strings.md#method-fluent-str-when-exactly)
 
-The `whenExactly` method invokes the given closure if the string exactly matches the given string. The closure will receive the fluent string instance:
+The `whenExactly` method invokes the given closure if the string exactly matches the given string. The closure will receive the fluent string
+instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2459,7 +2539,8 @@ $string = Str::of('laravel')->whenExactly('laravel', function (Stringable $strin
 
 [**`whenNotExactly`**](strings.md#method-fluent-str-when-not-exactly)
 
-The `whenNotExactly` method invokes the given closure if the string does not exactly match the given string. The closure will receive the fluent string instance:
+The `whenNotExactly` method invokes the given closure if the string does not exactly match the given string. The closure will receive the fluent
+string instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2469,7 +2550,8 @@ $string = Str::of('framework')->whenNotExactly('laravel', function (Stringable $
 
 [**`whenIs`**](strings.md#method-fluent-str-when-is)
 
-The `whenIs` method invokes the given closure if the string matches a given pattern. Asterisks may be used as wildcard values. The closure will receive the fluent string instance:
+The `whenIs` method invokes the given closure if the string matches a given pattern. Asterisks may be used as wildcard values. The closure will
+receive the fluent string instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2509,7 +2591,8 @@ $string = Str::of('a0a2a2d2-0b87-4a18-83f2-2529882be2de')->whenIsUuid(function (
 
 [**`whenTest`**](strings.md#method-fluent-str-when-test)
 
-The `whenTest` method invokes the given closure if the string matches the given regular expression. The closure will receive the fluent string instance:
+The `whenTest` method invokes the given closure if the string matches the given regular expression. The closure will receive the fluent string
+instance:
 
 ```php
 use Illuminate\Support\Str;use Illuminate\Support\Stringable;
@@ -2528,9 +2611,11 @@ Str::of('Hello, world!')->wordCount(); // 2
 
 [**`words`**](strings.md#method-fluent-str-words)
 
-The `words` method limits the number of words in a string. If necessary, you may specify an additional string that will be appended to the truncated string:
+The `words` method limits the number of words in a string. If necessary, you may specify an additional string that will be appended to the truncated
+string:
 
 {% code overflow="wrap" %}
+
 ```
 use Illuminate\Support\Str;
 
@@ -2538,6 +2623,7 @@ $string = Str::of('Perfectly balanced, as all things should be.')->words(3, ' >>
 
 // Perfectly balanced, as >>>
 ```
+
 {% endcode %}
 
 [**`wrap`**](strings.md#method-fluent-str-wrap)

@@ -1,2 +1,1 @@
 # Queries and javascript examples
-
