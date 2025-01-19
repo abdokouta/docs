@@ -1,7 +1,5 @@
 # API Key Module
 
-## API Key Module
-
 Maginium’s **API Key Module** provides a secure and flexible way to authenticate requests to your application’s API. This module is designed to ensure that only authorized clients can access your API endpoints. Follow this guide to configure and use API Key-based authentication in your Maginium-powered application.
 
 ***
