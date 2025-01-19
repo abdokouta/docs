@@ -1,9 +1,5 @@
 # Cart Module
 
-## Cart Module for Maginium
-
-### Overview
-
 The Cart Module in Maginium provides a flexible, efficient, and secure way to manage shopping carts in your application. Designed for scalability, it handles everything from simple cart operations to complex e-commerce workflows.
 
 Whether you are building a small store or a large-scale platform, the Cart Module seamlessly integrates into your project, ensuring a smooth user experience.
